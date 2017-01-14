@@ -1,0 +1,42 @@
+﻿  GLModel.cpp
+C:\Program Files (x86)\Windows Kits\8.1\Include\shared\minwindef.h(127): warning C4005: “CALLBACK”: 宏重定义
+  C:\IncludeLib\glut\gl/glut.h(33): note: 参见“CALLBACK”的前一个定义
+GLModel.cpp(599): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“unsigned __int64”
+  GLModel.cpp(599): note: 请考虑在格式字符串中使用“%zd”
+GLModel.cpp(992): warning C4477: “fprintf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“unsigned __int64”
+  GLModel.cpp(992): note: 请考虑在格式字符串中使用“%zd”
+GLModel.cpp(1001): warning C4477: “fprintf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“unsigned __int64”
+  GLModel.cpp(1001): note: 请考虑在格式字符串中使用“%zd”
+GLModel.cpp(1009): warning C4477: “fprintf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“unsigned __int64”
+  GLModel.cpp(1009): note: 请考虑在格式字符串中使用“%zd”
+GLModel.cpp(1018): warning C4477: “fprintf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“unsigned __int64”
+  GLModel.cpp(1018): note: 请考虑在格式字符串中使用“%zd”
+GLModel.cpp(1026): warning C4477: “fprintf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“unsigned __int64”
+  GLModel.cpp(1026): note: 请考虑在格式字符串中使用“%zd”
+GLModel.obj : warning LNK4006: "float __cdecl RandomFloat(void)" (?RandomFloat@@YAMXZ) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "float __cdecl Distance(float * const,float * const,int)" (?Distance@@YAMQEAM0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "float __cdecl Distance(double * const,double * const,int)" (?Distance@@YAMQEAN0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "class std::random_device rd" (?rd@@3Vrandom_device@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "class std::mersenne_twister_engine<unsigned int,32,624,397,31,2567483615,11,4294967295,7,2636928640,15,4022730752,18,1812433253> gen" (?gen@@3V?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "class std::uniform_real_distribution<double> dis" (?dis@@3V?$uniform_real_distribution@N@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class Vertex const &)" (?Distance@@YANAEBVVertex@@0@Z) 已在 GLModel.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl SquaredDistance(class Vertex const &,class Vertex const &)" (?SquaredDistance@@YANAEBVVertex@@0@Z) 已在 GLModel.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl Norm(class Vertex const &)" (?Norm@@YANAEBVVertex@@@Z) 已在 GLModel.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl SquaredNorm(class Vertex const &)" (?SquaredNorm@@YANAEBVVertex@@@Z) 已在 GLModel.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "class Vertex __cdecl Normalize(class Vertex &)" (?Normalize@@YA?AVVertex@@AEAV1@@Z) 已在 GLModel.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl Dot(class Vertex const &,class Vertex const &)" (?Dot@@YANAEBVVertex@@0@Z) 已在 GLModel.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "class Vertex __cdecl Cross(class Vertex const &,class Vertex const &)" (?Cross@@YA?AVVertex@@AEBV1@0@Z) 已在 GLModel.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl Angle(class Vertex const &,class Vertex const &)" (?Angle@@YANAEBVVertex@@0@Z) 已在 GLModel.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl TriangleArea(class Vertex const &,class Vertex const &,class Vertex const &)" (?TriangleArea@@YANAEBVVertex@@00@Z) 已在 GLModel.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl Distance(class Normal const &,class Normal const &)" (?Distance@@YANAEBVNormal@@0@Z) 已在 GLModel.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl SquaredDistance(class Normal const &,class Normal const &)" (?SquaredDistance@@YANAEBVNormal@@0@Z) 已在 GLModel.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl Norm(class Normal const &)" (?Norm@@YANAEBVNormal@@@Z) 已在 GLModel.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl SquaredNorm(class Normal const &)" (?SquaredNorm@@YANAEBVNormal@@@Z) 已在 GLModel.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "class Normal __cdecl Normalize(class Normal &)" (?Normalize@@YA?AVNormal@@AEAV1@@Z) 已在 GLModel.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl Dot(class Normal const &,class Normal const &)" (?Dot@@YANAEBVNormal@@0@Z) 已在 GLModel.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "class Normal __cdecl Cross(class Normal const &,class Normal const &)" (?Cross@@YA?AVNormal@@AEBV1@0@Z) 已在 GLModel.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl Angle(class Normal const &,class Normal const &)" (?Angle@@YANAEBVNormal@@0@Z) 已在 GLModel.obj 中定义；已忽略第二个定义
+GLModel.obj : error LNK2019: 无法解析的外部符号 auxDIBImageLoadA，该符号在函数 "int __cdecl GLMReadBMP(unsigned int * const,char *,int)" (?GLMReadBMP@@YAHQEAIPEADH@Z) 中被引用
+C:\IncludeLib\glut\GLAUX.lib : warning LNK4272: 库计算机类型“X86”与目标计算机类型“x64”冲突
+C:\IncludeLib\glut\glut32.lib : warning LNK4272: 库计算机类型“X86”与目标计算机类型“x64”冲突
+D:\ArchDrawAssist\ArchDrawAssist\x64\Debug\\ArchDrawAssist.exe : fatal error LNK1120: 1 个无法解析的外部命令

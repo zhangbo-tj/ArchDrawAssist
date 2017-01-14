@@ -1,0 +1,320 @@
+﻿  GLModel.cpp
+  moc_MainWindow.cpp
+  moc_ModelArea.cpp
+  moc_TextureArea.cpp
+  MainWindow.cpp
+  ModelArea.cpp
+  Slice.cpp
+Slice.cpp(92): warning C4838: 从“double”转换到“float”需要收缩转换
+Slice.cpp(93): warning C4838: 从“double”转换到“float”需要收缩转换
+Slice.cpp(94): warning C4838: 从“double”转换到“float”需要收缩转换
+  TextureArea.cpp
+  main.cpp
+  正在生成代码...
+d:\archdrawassist\archdrawassist\archdrawassist\modelarea.cpp(253): warning C4700: 使用了未初始化的局部变量“filename”
+moc_MainWindow.obj : warning LNK4006: "float __cdecl Distance(float * const,float * const,int)" (?Distance@@YAMQAM0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+moc_MainWindow.obj : warning LNK4006: "float __cdecl Distance(double * const,double * const,int)" (?Distance@@YAMQAN0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+moc_MainWindow.obj : warning LNK4006: "float __cdecl RandomFloat(void)" (?RandomFloat@@YAMXZ) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+moc_MainWindow.obj : warning LNK4006: "class std::random_device rd" (?rd@@3Vrandom_device@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+moc_MainWindow.obj : warning LNK4006: "class std::mersenne_twister_engine<unsigned int,32,624,397,31,2567483615,11,4294967295,7,2636928640,15,4022730752,18,1812433253> gen" (?gen@@3V?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+moc_MainWindow.obj : warning LNK4006: "class std::uniform_real_distribution<double> dis" (?dis@@3V?$uniform_real_distribution@N@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "double __cdecl Angle(class MyPoint const &,class MyPoint const &)" (?Angle@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "double __cdecl Angle(class Normal const &,class Normal const &)" (?Angle@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "double __cdecl Angle(class Vertex const &,class Vertex const &)" (?Angle@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "class MyPoint __cdecl Cross(class MyPoint const &,class MyPoint const &)" (?Cross@@YA?AVMyPoint@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "class Normal __cdecl Cross(class Normal const &,class Normal const &)" (?Cross@@YA?AVNormal@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "class Vertex __cdecl Cross(class Vertex const &,class Vertex const &)" (?Cross@@YA?AVVertex@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "float __cdecl Distance(float * const,float * const,int)" (?Distance@@YAMQAM0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "float __cdecl Distance(double * const,double * const,int)" (?Distance@@YAMQAN0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "double __cdecl Distance(class MyPoint const &,class MyPoint const &)" (?Distance@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "double __cdecl Distance(class Normal const &,class Normal const &)" (?Distance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class Vertex const &)" (?Distance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class MyPoint const &)" (?Distance@@YANABVVertex@@ABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "double __cdecl Dot(class MyPoint const &,class MyPoint const &)" (?Dot@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "double __cdecl Dot(class Normal const &,class Normal const &)" (?Dot@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "double __cdecl Dot(class Vertex const &,class Vertex const &)" (?Dot@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "int __cdecl IsFaceUpperPlane(class Face const &,double *,class MyPoint const &)" (?IsFaceUpperPlane@@YAHABVFace@@PANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "int __cdecl IsFaceUpperPlaneX(class Face const &,double)" (?IsFaceUpperPlaneX@@YAHABVFace@@N@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "int __cdecl IsFaceUpperPlaneY(class Face const &,double)" (?IsFaceUpperPlaneY@@YAHABVFace@@N@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "int __cdecl IsFaceUpperYOZ(class Face const &)" (?IsFaceUpperYOZ@@YAHABVFace@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "bool __cdecl IsInTriangle(class Vertex const &,class Vertex const &,class Vertex const &,class MyPoint const &)" (?IsInTriangle@@YA_NABVVertex@@00ABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "bool __cdecl IsNeighborTri(class Triangle const &,class Triangle)" (?IsNeighborTri@@YA_NABVTriangle@@V1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "int __cdecl IsVertexUpperPlane(class Vertex const &,double)" (?IsVertexUpperPlane@@YAHABVVertex@@N@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "int __cdecl IsVertexUpperPlane(class Vertex const &,double *,class MyPoint const &)" (?IsVertexUpperPlane@@YAHABVVertex@@PANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "int __cdecl IsVertexUpperYOZ(class Vertex const &)" (?IsVertexUpperYOZ@@YAHABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "double __cdecl Norm(class MyPoint const &)" (?Norm@@YANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "double __cdecl Norm(class Normal const &)" (?Norm@@YANABVNormal@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "double __cdecl Norm(class Vertex const &)" (?Norm@@YANABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "class MyPoint __cdecl Normalize(class MyPoint &)" (?Normalize@@YA?AVMyPoint@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "class Normal __cdecl Normalize(class Normal &)" (?Normalize@@YA?AVNormal@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "class Vertex __cdecl Normalize(class Vertex &)" (?Normalize@@YA?AVVertex@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "float __cdecl RandomFloat(void)" (?RandomFloat@@YAMXZ) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "bool __cdecl SameSide(class Vertex const &,class Vertex const &,class Vertex const &,class MyPoint const &)" (?SameSide@@YA_NABVVertex@@00ABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "double __cdecl SquaredDistance(class MyPoint const &,class MyPoint const &)" (?SquaredDistance@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "double __cdecl SquaredDistance(class Normal const &,class Normal const &)" (?SquaredDistance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "double __cdecl SquaredDistance(class Vertex const &,class Vertex const &)" (?SquaredDistance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "double __cdecl SquaredNorm(class MyPoint const &)" (?SquaredNorm@@YANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "double __cdecl SquaredNorm(class Normal const &)" (?SquaredNorm@@YANABVNormal@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "double __cdecl SquaredNorm(class Vertex const &)" (?SquaredNorm@@YANABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "double __cdecl TriangleArea(class Vertex const &,class Vertex const &,class Vertex const &)" (?TriangleArea@@YANABVVertex@@00@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "class std::random_device rd" (?rd@@3Vrandom_device@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "class std::mersenne_twister_engine<unsigned int,32,624,397,31,2567483615,11,4294967295,7,2636928640,15,4022730752,18,1812433253> gen" (?gen@@3V?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "class std::uniform_real_distribution<double> dis" (?dis@@3V?$uniform_real_distribution@N@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "double __cdecl Angle(class Normal const &,class Normal const &)" (?Angle@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "double __cdecl Angle(class Vertex const &,class Vertex const &)" (?Angle@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "class Normal __cdecl Cross(class Normal const &,class Normal const &)" (?Cross@@YA?AVNormal@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "class Vertex __cdecl Cross(class Vertex const &,class Vertex const &)" (?Cross@@YA?AVVertex@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "float __cdecl Distance(float * const,float * const,int)" (?Distance@@YAMQAM0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "float __cdecl Distance(double * const,double * const,int)" (?Distance@@YAMQAN0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "double __cdecl Distance(class Normal const &,class Normal const &)" (?Distance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class Vertex const &)" (?Distance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "double __cdecl Dot(class Normal const &,class Normal const &)" (?Dot@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "double __cdecl Dot(class Vertex const &,class Vertex const &)" (?Dot@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "double __cdecl Norm(class Normal const &)" (?Norm@@YANABVNormal@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "double __cdecl Norm(class Vertex const &)" (?Norm@@YANABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "class Normal __cdecl Normalize(class Normal &)" (?Normalize@@YA?AVNormal@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "class Vertex __cdecl Normalize(class Vertex &)" (?Normalize@@YA?AVVertex@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "float __cdecl RandomFloat(void)" (?RandomFloat@@YAMXZ) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "double __cdecl SquaredDistance(class Normal const &,class Normal const &)" (?SquaredDistance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "double __cdecl SquaredDistance(class Vertex const &,class Vertex const &)" (?SquaredDistance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "double __cdecl SquaredNorm(class Normal const &)" (?SquaredNorm@@YANABVNormal@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "double __cdecl SquaredNorm(class Vertex const &)" (?SquaredNorm@@YANABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "double __cdecl TriangleArea(class Vertex const &,class Vertex const &,class Vertex const &)" (?TriangleArea@@YANABVVertex@@00@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "class std::random_device rd" (?rd@@3Vrandom_device@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "class std::mersenne_twister_engine<unsigned int,32,624,397,31,2567483615,11,4294967295,7,2636928640,15,4022730752,18,1812433253> gen" (?gen@@3V?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "class std::uniform_real_distribution<double> dis" (?dis@@3V?$uniform_real_distribution@N@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "double __cdecl Angle(class Normal const &,class Normal const &)" (?Angle@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "double __cdecl Angle(class Vertex const &,class Vertex const &)" (?Angle@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "class Normal __cdecl Cross(class Normal const &,class Normal const &)" (?Cross@@YA?AVNormal@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "class Vertex __cdecl Cross(class Vertex const &,class Vertex const &)" (?Cross@@YA?AVVertex@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "float __cdecl Distance(float * const,float * const,int)" (?Distance@@YAMQAM0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "float __cdecl Distance(double * const,double * const,int)" (?Distance@@YAMQAN0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "double __cdecl Distance(class Normal const &,class Normal const &)" (?Distance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class Vertex const &)" (?Distance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "double __cdecl Dot(class Normal const &,class Normal const &)" (?Dot@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "double __cdecl Dot(class Vertex const &,class Vertex const &)" (?Dot@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "double __cdecl Norm(class Normal const &)" (?Norm@@YANABVNormal@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "double __cdecl Norm(class Vertex const &)" (?Norm@@YANABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "class Normal __cdecl Normalize(class Normal &)" (?Normalize@@YA?AVNormal@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "class Vertex __cdecl Normalize(class Vertex &)" (?Normalize@@YA?AVVertex@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "float __cdecl RandomFloat(void)" (?RandomFloat@@YAMXZ) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "double __cdecl SquaredDistance(class Normal const &,class Normal const &)" (?SquaredDistance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "double __cdecl SquaredDistance(class Vertex const &,class Vertex const &)" (?SquaredDistance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "double __cdecl SquaredNorm(class Normal const &)" (?SquaredNorm@@YANABVNormal@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "double __cdecl SquaredNorm(class Vertex const &)" (?SquaredNorm@@YANABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "double __cdecl TriangleArea(class Vertex const &,class Vertex const &,class Vertex const &)" (?TriangleArea@@YANABVVertex@@00@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "class std::random_device rd" (?rd@@3Vrandom_device@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "class std::mersenne_twister_engine<unsigned int,32,624,397,31,2567483615,11,4294967295,7,2636928640,15,4022730752,18,1812433253> gen" (?gen@@3V?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+GLModel.obj : warning LNK4006: "class std::uniform_real_distribution<double> dis" (?dis@@3V?$uniform_real_distribution@N@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl Angle(class MyPoint const &,class MyPoint const &)" (?Angle@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl Angle(class Normal const &,class Normal const &)" (?Angle@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl Angle(class Vertex const &,class Vertex const &)" (?Angle@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "class MyPoint __cdecl Cross(class MyPoint const &,class MyPoint const &)" (?Cross@@YA?AVMyPoint@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "class Normal __cdecl Cross(class Normal const &,class Normal const &)" (?Cross@@YA?AVNormal@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "class Vertex __cdecl Cross(class Vertex const &,class Vertex const &)" (?Cross@@YA?AVVertex@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl Distance(class MyPoint const &,class MyPoint const &)" (?Distance@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl Distance(class Normal const &,class Normal const &)" (?Distance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class Vertex const &)" (?Distance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl Dot(class MyPoint const &,class MyPoint const &)" (?Dot@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl Dot(class Normal const &,class Normal const &)" (?Dot@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl Dot(class Vertex const &,class Vertex const &)" (?Dot@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl Norm(class MyPoint const &)" (?Norm@@YANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl Norm(class Normal const &)" (?Norm@@YANABVNormal@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl Norm(class Vertex const &)" (?Norm@@YANABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "class MyPoint __cdecl Normalize(class MyPoint &)" (?Normalize@@YA?AVMyPoint@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "class Normal __cdecl Normalize(class Normal &)" (?Normalize@@YA?AVNormal@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "class Vertex __cdecl Normalize(class Vertex &)" (?Normalize@@YA?AVVertex@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl SquaredDistance(class MyPoint const &,class MyPoint const &)" (?SquaredDistance@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl SquaredDistance(class Normal const &,class Normal const &)" (?SquaredDistance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl SquaredDistance(class Vertex const &,class Vertex const &)" (?SquaredDistance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl SquaredNorm(class MyPoint const &)" (?SquaredNorm@@YANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl SquaredNorm(class Normal const &)" (?SquaredNorm@@YANABVNormal@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl SquaredNorm(class Vertex const &)" (?SquaredNorm@@YANABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+kdtree.obj : warning LNK4006: "double __cdecl TriangleArea(class Vertex const &,class Vertex const &,class Vertex const &)" (?TriangleArea@@YANABVVertex@@00@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "double __cdecl Angle(class MyPoint const &,class MyPoint const &)" (?Angle@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "double __cdecl Angle(class Normal const &,class Normal const &)" (?Angle@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "double __cdecl Angle(class Vertex const &,class Vertex const &)" (?Angle@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "class MyPoint __cdecl Cross(class MyPoint const &,class MyPoint const &)" (?Cross@@YA?AVMyPoint@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "class Normal __cdecl Cross(class Normal const &,class Normal const &)" (?Cross@@YA?AVNormal@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "class Vertex __cdecl Cross(class Vertex const &,class Vertex const &)" (?Cross@@YA?AVVertex@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "float __cdecl Distance(float * const,float * const,int)" (?Distance@@YAMQAM0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "float __cdecl Distance(double * const,double * const,int)" (?Distance@@YAMQAN0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "double __cdecl Distance(class MyPoint const &,class MyPoint const &)" (?Distance@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "double __cdecl Distance(class Normal const &,class Normal const &)" (?Distance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class Vertex const &)" (?Distance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class MyPoint const &)" (?Distance@@YANABVVertex@@ABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "double __cdecl Dot(class MyPoint const &,class MyPoint const &)" (?Dot@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "double __cdecl Dot(class Normal const &,class Normal const &)" (?Dot@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "double __cdecl Dot(class Vertex const &,class Vertex const &)" (?Dot@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "int __cdecl IsFaceUpperPlane(class Face const &,double *,class MyPoint const &)" (?IsFaceUpperPlane@@YAHABVFace@@PANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "int __cdecl IsFaceUpperPlaneX(class Face const &,double)" (?IsFaceUpperPlaneX@@YAHABVFace@@N@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "int __cdecl IsFaceUpperPlaneY(class Face const &,double)" (?IsFaceUpperPlaneY@@YAHABVFace@@N@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "int __cdecl IsFaceUpperYOZ(class Face const &)" (?IsFaceUpperYOZ@@YAHABVFace@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "bool __cdecl IsInTriangle(class Vertex const &,class Vertex const &,class Vertex const &,class MyPoint const &)" (?IsInTriangle@@YA_NABVVertex@@00ABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "bool __cdecl IsNeighborTri(class Triangle const &,class Triangle)" (?IsNeighborTri@@YA_NABVTriangle@@V1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "int __cdecl IsVertexUpperPlane(class Vertex const &,double)" (?IsVertexUpperPlane@@YAHABVVertex@@N@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "int __cdecl IsVertexUpperPlane(class Vertex const &,double *,class MyPoint const &)" (?IsVertexUpperPlane@@YAHABVVertex@@PANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "int __cdecl IsVertexUpperYOZ(class Vertex const &)" (?IsVertexUpperYOZ@@YAHABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "double __cdecl Norm(class MyPoint const &)" (?Norm@@YANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "double __cdecl Norm(class Normal const &)" (?Norm@@YANABVNormal@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "double __cdecl Norm(class Vertex const &)" (?Norm@@YANABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "class MyPoint __cdecl Normalize(class MyPoint &)" (?Normalize@@YA?AVMyPoint@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "class Normal __cdecl Normalize(class Normal &)" (?Normalize@@YA?AVNormal@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "class Vertex __cdecl Normalize(class Vertex &)" (?Normalize@@YA?AVVertex@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "float __cdecl RandomFloat(void)" (?RandomFloat@@YAMXZ) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "bool __cdecl SameSide(class Vertex const &,class Vertex const &,class Vertex const &,class MyPoint const &)" (?SameSide@@YA_NABVVertex@@00ABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "double __cdecl SquaredDistance(class MyPoint const &,class MyPoint const &)" (?SquaredDistance@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "double __cdecl SquaredDistance(class Normal const &,class Normal const &)" (?SquaredDistance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "double __cdecl SquaredDistance(class Vertex const &,class Vertex const &)" (?SquaredDistance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "double __cdecl SquaredNorm(class MyPoint const &)" (?SquaredNorm@@YANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "double __cdecl SquaredNorm(class Normal const &)" (?SquaredNorm@@YANABVNormal@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "double __cdecl SquaredNorm(class Vertex const &)" (?SquaredNorm@@YANABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "double __cdecl TriangleArea(class Vertex const &,class Vertex const &,class Vertex const &)" (?TriangleArea@@YANABVVertex@@00@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "class std::random_device rd" (?rd@@3Vrandom_device@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "class std::mersenne_twister_engine<unsigned int,32,624,397,31,2567483615,11,4294967295,7,2636928640,15,4022730752,18,1812433253> gen" (?gen@@3V?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "class std::uniform_real_distribution<double> dis" (?dis@@3V?$uniform_real_distribution@N@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "double __cdecl Angle(class MyPoint const &,class MyPoint const &)" (?Angle@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "double __cdecl Angle(class Normal const &,class Normal const &)" (?Angle@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "double __cdecl Angle(class Vertex const &,class Vertex const &)" (?Angle@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "class MyPoint __cdecl Cross(class MyPoint const &,class MyPoint const &)" (?Cross@@YA?AVMyPoint@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "class Normal __cdecl Cross(class Normal const &,class Normal const &)" (?Cross@@YA?AVNormal@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "class Vertex __cdecl Cross(class Vertex const &,class Vertex const &)" (?Cross@@YA?AVVertex@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "float __cdecl Distance(float * const,float * const,int)" (?Distance@@YAMQAM0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "float __cdecl Distance(double * const,double * const,int)" (?Distance@@YAMQAN0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "double __cdecl Distance(class MyPoint const &,class MyPoint const &)" (?Distance@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "double __cdecl Distance(class Normal const &,class Normal const &)" (?Distance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class Vertex const &)" (?Distance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class MyPoint const &)" (?Distance@@YANABVVertex@@ABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "double __cdecl Dot(class MyPoint const &,class MyPoint const &)" (?Dot@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "double __cdecl Dot(class Normal const &,class Normal const &)" (?Dot@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "double __cdecl Dot(class Vertex const &,class Vertex const &)" (?Dot@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "int __cdecl IsFaceUpperPlane(class Face const &,double *,class MyPoint const &)" (?IsFaceUpperPlane@@YAHABVFace@@PANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "int __cdecl IsFaceUpperPlaneX(class Face const &,double)" (?IsFaceUpperPlaneX@@YAHABVFace@@N@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "int __cdecl IsFaceUpperPlaneY(class Face const &,double)" (?IsFaceUpperPlaneY@@YAHABVFace@@N@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "int __cdecl IsFaceUpperYOZ(class Face const &)" (?IsFaceUpperYOZ@@YAHABVFace@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "bool __cdecl IsInTriangle(class Vertex const &,class Vertex const &,class Vertex const &,class MyPoint const &)" (?IsInTriangle@@YA_NABVVertex@@00ABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "bool __cdecl IsNeighborTri(class Triangle const &,class Triangle)" (?IsNeighborTri@@YA_NABVTriangle@@V1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "int __cdecl IsVertexUpperPlane(class Vertex const &,double)" (?IsVertexUpperPlane@@YAHABVVertex@@N@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "int __cdecl IsVertexUpperPlane(class Vertex const &,double *,class MyPoint const &)" (?IsVertexUpperPlane@@YAHABVVertex@@PANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "int __cdecl IsVertexUpperYOZ(class Vertex const &)" (?IsVertexUpperYOZ@@YAHABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "double __cdecl Norm(class MyPoint const &)" (?Norm@@YANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "double __cdecl Norm(class Normal const &)" (?Norm@@YANABVNormal@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "double __cdecl Norm(class Vertex const &)" (?Norm@@YANABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "class MyPoint __cdecl Normalize(class MyPoint &)" (?Normalize@@YA?AVMyPoint@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "class Normal __cdecl Normalize(class Normal &)" (?Normalize@@YA?AVNormal@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "class Vertex __cdecl Normalize(class Vertex &)" (?Normalize@@YA?AVVertex@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "float __cdecl RandomFloat(void)" (?RandomFloat@@YAMXZ) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "bool __cdecl SameSide(class Vertex const &,class Vertex const &,class Vertex const &,class MyPoint const &)" (?SameSide@@YA_NABVVertex@@00ABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "double __cdecl SquaredDistance(class MyPoint const &,class MyPoint const &)" (?SquaredDistance@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "double __cdecl SquaredDistance(class Normal const &,class Normal const &)" (?SquaredDistance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "double __cdecl SquaredDistance(class Vertex const &,class Vertex const &)" (?SquaredDistance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "double __cdecl SquaredNorm(class MyPoint const &)" (?SquaredNorm@@YANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "double __cdecl SquaredNorm(class Normal const &)" (?SquaredNorm@@YANABVNormal@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "double __cdecl SquaredNorm(class Vertex const &)" (?SquaredNorm@@YANABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "double __cdecl TriangleArea(class Vertex const &,class Vertex const &,class Vertex const &)" (?TriangleArea@@YANABVVertex@@00@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "class std::random_device rd" (?rd@@3Vrandom_device@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "class std::mersenne_twister_engine<unsigned int,32,624,397,31,2567483615,11,4294967295,7,2636928640,15,4022730752,18,1812433253> gen" (?gen@@3V?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "class std::uniform_real_distribution<double> dis" (?dis@@3V?$uniform_real_distribution@N@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "double __cdecl Angle(class MyPoint const &,class MyPoint const &)" (?Angle@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "double __cdecl Angle(class Normal const &,class Normal const &)" (?Angle@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "double __cdecl Angle(class Vertex const &,class Vertex const &)" (?Angle@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "class MyPoint __cdecl Cross(class MyPoint const &,class MyPoint const &)" (?Cross@@YA?AVMyPoint@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "class Normal __cdecl Cross(class Normal const &,class Normal const &)" (?Cross@@YA?AVNormal@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "class Vertex __cdecl Cross(class Vertex const &,class Vertex const &)" (?Cross@@YA?AVVertex@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "float __cdecl Distance(float * const,float * const,int)" (?Distance@@YAMQAM0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "float __cdecl Distance(double * const,double * const,int)" (?Distance@@YAMQAN0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "double __cdecl Distance(class MyPoint const &,class MyPoint const &)" (?Distance@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "double __cdecl Distance(class Normal const &,class Normal const &)" (?Distance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class Vertex const &)" (?Distance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class MyPoint const &)" (?Distance@@YANABVVertex@@ABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "double __cdecl Dot(class MyPoint const &,class MyPoint const &)" (?Dot@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "double __cdecl Dot(class Normal const &,class Normal const &)" (?Dot@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "double __cdecl Dot(class Vertex const &,class Vertex const &)" (?Dot@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "int __cdecl IsFaceUpperPlane(class Face const &,double *,class MyPoint const &)" (?IsFaceUpperPlane@@YAHABVFace@@PANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "int __cdecl IsFaceUpperPlaneX(class Face const &,double)" (?IsFaceUpperPlaneX@@YAHABVFace@@N@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "int __cdecl IsFaceUpperPlaneY(class Face const &,double)" (?IsFaceUpperPlaneY@@YAHABVFace@@N@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "int __cdecl IsFaceUpperYOZ(class Face const &)" (?IsFaceUpperYOZ@@YAHABVFace@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "bool __cdecl IsInTriangle(class Vertex const &,class Vertex const &,class Vertex const &,class MyPoint const &)" (?IsInTriangle@@YA_NABVVertex@@00ABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "bool __cdecl IsNeighborTri(class Triangle const &,class Triangle)" (?IsNeighborTri@@YA_NABVTriangle@@V1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "int __cdecl IsVertexUpperPlane(class Vertex const &,double)" (?IsVertexUpperPlane@@YAHABVVertex@@N@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "int __cdecl IsVertexUpperPlane(class Vertex const &,double *,class MyPoint const &)" (?IsVertexUpperPlane@@YAHABVVertex@@PANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "int __cdecl IsVertexUpperYOZ(class Vertex const &)" (?IsVertexUpperYOZ@@YAHABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "double __cdecl Norm(class MyPoint const &)" (?Norm@@YANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "double __cdecl Norm(class Normal const &)" (?Norm@@YANABVNormal@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "double __cdecl Norm(class Vertex const &)" (?Norm@@YANABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "class MyPoint __cdecl Normalize(class MyPoint &)" (?Normalize@@YA?AVMyPoint@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "class Normal __cdecl Normalize(class Normal &)" (?Normalize@@YA?AVNormal@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "class Vertex __cdecl Normalize(class Vertex &)" (?Normalize@@YA?AVVertex@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "float __cdecl RandomFloat(void)" (?RandomFloat@@YAMXZ) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "bool __cdecl SameSide(class Vertex const &,class Vertex const &,class Vertex const &,class MyPoint const &)" (?SameSide@@YA_NABVVertex@@00ABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "double __cdecl SquaredDistance(class MyPoint const &,class MyPoint const &)" (?SquaredDistance@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "double __cdecl SquaredDistance(class Normal const &,class Normal const &)" (?SquaredDistance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "double __cdecl SquaredDistance(class Vertex const &,class Vertex const &)" (?SquaredDistance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "double __cdecl SquaredNorm(class MyPoint const &)" (?SquaredNorm@@YANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "double __cdecl SquaredNorm(class Normal const &)" (?SquaredNorm@@YANABVNormal@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "double __cdecl SquaredNorm(class Vertex const &)" (?SquaredNorm@@YANABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "double __cdecl TriangleArea(class Vertex const &,class Vertex const &,class Vertex const &)" (?TriangleArea@@YANABVVertex@@00@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "class std::random_device rd" (?rd@@3Vrandom_device@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "class std::mersenne_twister_engine<unsigned int,32,624,397,31,2567483615,11,4294967295,7,2636928640,15,4022730752,18,1812433253> gen" (?gen@@3V?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "class std::uniform_real_distribution<double> dis" (?dis@@3V?$uniform_real_distribution@N@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "double __cdecl Angle(class MyPoint const &,class MyPoint const &)" (?Angle@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "double __cdecl Angle(class Normal const &,class Normal const &)" (?Angle@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "double __cdecl Angle(class Vertex const &,class Vertex const &)" (?Angle@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "class MyPoint __cdecl Cross(class MyPoint const &,class MyPoint const &)" (?Cross@@YA?AVMyPoint@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "class Normal __cdecl Cross(class Normal const &,class Normal const &)" (?Cross@@YA?AVNormal@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "class Vertex __cdecl Cross(class Vertex const &,class Vertex const &)" (?Cross@@YA?AVVertex@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "double __cdecl Distance(class MyPoint const &,class MyPoint const &)" (?Distance@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "double __cdecl Distance(class Normal const &,class Normal const &)" (?Distance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class Vertex const &)" (?Distance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class MyPoint const &)" (?Distance@@YANABVVertex@@ABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "double __cdecl Dot(class MyPoint const &,class MyPoint const &)" (?Dot@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "double __cdecl Dot(class Normal const &,class Normal const &)" (?Dot@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "double __cdecl Dot(class Vertex const &,class Vertex const &)" (?Dot@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "int __cdecl IsFaceUpperPlane(class Face const &,double *,class MyPoint const &)" (?IsFaceUpperPlane@@YAHABVFace@@PANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "int __cdecl IsFaceUpperPlaneX(class Face const &,double)" (?IsFaceUpperPlaneX@@YAHABVFace@@N@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "int __cdecl IsFaceUpperPlaneY(class Face const &,double)" (?IsFaceUpperPlaneY@@YAHABVFace@@N@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "int __cdecl IsFaceUpperYOZ(class Face const &)" (?IsFaceUpperYOZ@@YAHABVFace@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "bool __cdecl IsInTriangle(class Vertex const &,class Vertex const &,class Vertex const &,class MyPoint const &)" (?IsInTriangle@@YA_NABVVertex@@00ABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "bool __cdecl IsNeighborTri(class Triangle const &,class Triangle)" (?IsNeighborTri@@YA_NABVTriangle@@V1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "int __cdecl IsVertexUpperPlane(class Vertex const &,double)" (?IsVertexUpperPlane@@YAHABVVertex@@N@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "int __cdecl IsVertexUpperPlane(class Vertex const &,double *,class MyPoint const &)" (?IsVertexUpperPlane@@YAHABVVertex@@PANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "int __cdecl IsVertexUpperYOZ(class Vertex const &)" (?IsVertexUpperYOZ@@YAHABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "double __cdecl Norm(class MyPoint const &)" (?Norm@@YANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "double __cdecl Norm(class Normal const &)" (?Norm@@YANABVNormal@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "double __cdecl Norm(class Vertex const &)" (?Norm@@YANABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "class MyPoint __cdecl Normalize(class MyPoint &)" (?Normalize@@YA?AVMyPoint@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "class Normal __cdecl Normalize(class Normal &)" (?Normalize@@YA?AVNormal@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "class Vertex __cdecl Normalize(class Vertex &)" (?Normalize@@YA?AVVertex@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "bool __cdecl SameSide(class Vertex const &,class Vertex const &,class Vertex const &,class MyPoint const &)" (?SameSide@@YA_NABVVertex@@00ABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "double __cdecl SquaredDistance(class MyPoint const &,class MyPoint const &)" (?SquaredDistance@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "double __cdecl SquaredDistance(class Normal const &,class Normal const &)" (?SquaredDistance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "double __cdecl SquaredDistance(class Vertex const &,class Vertex const &)" (?SquaredDistance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "double __cdecl SquaredNorm(class MyPoint const &)" (?SquaredNorm@@YANABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "double __cdecl SquaredNorm(class Normal const &)" (?SquaredNorm@@YANABVNormal@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "double __cdecl SquaredNorm(class Vertex const &)" (?SquaredNorm@@YANABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "double __cdecl TriangleArea(class Vertex const &,class Vertex const &,class Vertex const &)" (?TriangleArea@@YANABVVertex@@00@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "double __cdecl Angle(class Normal const &,class Normal const &)" (?Angle@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "double __cdecl Angle(class Vertex const &,class Vertex const &)" (?Angle@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "class Normal __cdecl Cross(class Normal const &,class Normal const &)" (?Cross@@YA?AVNormal@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "class Vertex __cdecl Cross(class Vertex const &,class Vertex const &)" (?Cross@@YA?AVVertex@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "float __cdecl Distance(float * const,float * const,int)" (?Distance@@YAMQAM0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "float __cdecl Distance(double * const,double * const,int)" (?Distance@@YAMQAN0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "double __cdecl Distance(class Normal const &,class Normal const &)" (?Distance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class Vertex const &)" (?Distance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "double __cdecl Dot(class Normal const &,class Normal const &)" (?Dot@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "double __cdecl Dot(class Vertex const &,class Vertex const &)" (?Dot@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "double __cdecl Norm(class Normal const &)" (?Norm@@YANABVNormal@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "double __cdecl Norm(class Vertex const &)" (?Norm@@YANABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "class Normal __cdecl Normalize(class Normal &)" (?Normalize@@YA?AVNormal@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "class Vertex __cdecl Normalize(class Vertex &)" (?Normalize@@YA?AVVertex@@AAV1@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "float __cdecl RandomFloat(void)" (?RandomFloat@@YAMXZ) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "double __cdecl SquaredDistance(class Normal const &,class Normal const &)" (?SquaredDistance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "double __cdecl SquaredDistance(class Vertex const &,class Vertex const &)" (?SquaredDistance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "double __cdecl SquaredNorm(class Normal const &)" (?SquaredNorm@@YANABVNormal@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "double __cdecl SquaredNorm(class Vertex const &)" (?SquaredNorm@@YANABVVertex@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "double __cdecl TriangleArea(class Vertex const &,class Vertex const &,class Vertex const &)" (?TriangleArea@@YANABVVertex@@00@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "class std::random_device rd" (?rd@@3Vrandom_device@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "class std::mersenne_twister_engine<unsigned int,32,624,397,31,2567483615,11,4294967295,7,2636928640,15,4022730752,18,1812433253> gen" (?gen@@3V?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "class std::uniform_real_distribution<double> dis" (?dis@@3V?$uniform_real_distribution@N@std@@A) 已在 GeneralUse.obj 中定义；已忽略第二个定义
+D:\ArchDrawAssist\ArchDrawAssist\Win32\Release\\ArchDrawAssist.exe : warning LNK4088: 因 /FORCE 选项生成了映像；映像可能不能运行
+  ArchDrawAssist.vcxproj -> D:\ArchDrawAssist\ArchDrawAssist\Win32\Release\ArchDrawAssist.exe

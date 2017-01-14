@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/MainWindow">
+        <file>Icons/3d_axis_blue.png</file>
+        <file>Icons/3d_axis_green.png</file>
+        <file>Icons/axis.png</file>
+        <file>Icons/axis_blue.png</file>
+        <file>Icons/coordinate.png</file>
+        <file>Icons/import_blue.png</file>
+        <file>Icons/open.png</file>
+        <file>Icons/reload.png</file>
+        <file>Icons/save.png</file>
+        <file>Icons/save_blue.png</file>
+        <file>Icons/save_texture_blue.png</file>
+        <file>Icons/start.png</file>
+        <file>Icons/start_blue.png</file>
+    </qresource>
+</RCC>
