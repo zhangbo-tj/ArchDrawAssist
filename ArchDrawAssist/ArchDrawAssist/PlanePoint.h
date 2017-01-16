@@ -21,6 +21,10 @@ public:
 		:px_(0.0), py_(0.0) {
 
 	}
+	PlanePoint(const PlanePoint& p)
+		:px_(p.X()), py_(p.Y()) {
+	
+	}
 
 	const double X() const { return px_; }
 	double X() { return px_; }
@@ -82,3 +86,6 @@ public:
 	}
 };
 
+double Distance(const PlanePoint& p1, const PlanePoint& p2) {
+	return (p1 - p2).Norm();
+}

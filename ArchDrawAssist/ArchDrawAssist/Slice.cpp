@@ -135,7 +135,7 @@ void Slice::ConialFrustumFitting() {
 			start_min = x_y3 < x_y4 ? x_y3 : x_y4;
 			end_min = x_y3 > x_y4 ? x_y3 : x_y4;
 			distance = (end_max - start_max) / 10;
-			while (start_max < end_max) {
+			while ((start_max < end_max)&&abs(start_max-end_max) > 1.0e-3) {
 				float  mp = (start_max - RefectPoints[k - 1].y) / (reflectmax_x - RefectPoints[k - 1].x);
 				float  yp = mp*(reflectmin_x - RefectPoints[k - 1].x) + RefectPoints[k - 1].y;
 				VC = start_max *start_max + start_max*yp + yp*yp;
@@ -148,7 +148,7 @@ void Slice::ConialFrustumFitting() {
 				start_max = start_max + distance;
 			}
 			distance = (end_min - start_min) / 10;
-			while (start_min < end_min) {
+			while ((start_min < end_min)&&(abs(start_min-end_min)>1.0e-3) ){
 				float  mp = (start_min - RefectPoints[k - 1].y) / (reflectmin_x - RefectPoints[k - 1].x);
 				float  yp = mp*(reflectmax_x - RefectPoints[k - 1].x) + RefectPoints[k - 1].y;
 				VC = start_min*start_min + start_min*yp + yp*yp;
@@ -190,7 +190,7 @@ void Slice::ConialFrustumFitting() {
 			start_max = x_y3 < x_y4 ? x_y3 : x_y4;
 			end_max = x_y3 > x_y4 ? x_y3 : x_y4;
 			distance = (end_min - start_min) / 10;
-			while (start_min < end_min) {
+			while ((start_min < end_min)&&(abs(start_min-end_min) > 1.0e-3)) {
 				float  mp = (start_min - RefectPoints[k + 1].y) / (reflectmin_x - RefectPoints[k + 1].x);
 				float  yp = mp*(reflectmax_x - RefectPoints[k + 1].x) + RefectPoints[k + 1].y;
 				VC = start_min *start_min + start_min*yp + yp*yp;
@@ -203,7 +203,7 @@ void Slice::ConialFrustumFitting() {
 				start_min = start_min + distance;
 			}
 			distance = (end_max - start_max) / 10;
-			while (start_max < end_max) {
+			while ((start_max < end_max)&&(abs(start_max-end_max)>1.0e-3)) {
 				float  mp = (start_max - RefectPoints[k + 1].y) / (reflectmax_x - RefectPoints[k + 1].x);
 				float  yp = mp*(reflectmin_x - RefectPoints[k + 1].x) + RefectPoints[k + 1].y;
 				VC = start_max*start_max + start_max*yp + yp*yp;
@@ -406,6 +406,17 @@ EnrolledSlice Slice::EnrollSlice() {
 		plane_faces.push_back(ExpandAsConial(mFaces[i], mHeight, mMaxRadius, H, mFlag));
 		//plane_faces.push_back(ExpandAsCylinder(mFaces[i], mMaxRadius));
 	}
-	return EnrolledSlice(plane_faces);
+	
+	double alpha = M_PI * mMaxRadius / sqrt(H* H + mMaxRadius*mMaxRadius);
+	double tempMinRadius = mMinRadius / mMaxRadius*sqrt(H*H + mMaxRadius*mMaxRadius);
+	double tempMaxRadius = sqrt(H * H + mMaxRadius*mMaxRadius);
+	PlanePoint boundary;
+	if (mFlag) {
+		boundary = PlanePoint(tempMinRadius*sin(alpha), mHeight - tempMinRadius*cos(alpha));
+	}
+	else {
+		boundary = PlanePoint(tempMinRadius*sin(alpha), mHeight + tempMinRadius*cos(alpha));
+	}
+	return EnrolledSlice(plane_faces,boundary,PlanePoint(0,mHeight),tempMinRadius,tempMaxRadius,mFlag);
 }
 

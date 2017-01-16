@@ -52,11 +52,22 @@ void MainWindow::InitActions() {
 	icon2.addFile(QString::fromUtf8("Icons/save_texture_blue.png"), QSize(), QIcon::Normal, QIcon::Off);
 	save_texture_action_->setIcon(icon2);
 
-
-	start_unfold_action_ = new QAction(QString::fromLocal8Bit("开始"));
+	combine_region_action_ = new QAction(QString::fromLocal8Bit("合并区域"));
 	QIcon icon3;
-	icon3.addFile(QString::fromUtf8("Icons/start_blue.png"), QSize(), QIcon::Normal, QIcon::Off);
-	start_unfold_action_->setIcon(icon3);
+	icon3.addFile(QString::fromUtf8("Icons/combine_blue.png"), QSize(), QIcon::Normal, QIcon::Off);
+	combine_region_action_->setIcon(icon3);
+	combine_region_action_->setCheckable(true);
+
+	cal_cutplane_action_ = new QAction(QString::fromLocal8Bit("切分位置"));
+	QIcon icon4;
+	icon4.addFile(QString::fromUtf8("Icons/cut_blue.png"), QSize(), QIcon::Normal, QIcon::Off);
+	cal_cutplane_action_->setIcon(icon4);
+
+
+	start_unfold_action_ = new QAction(QString::fromLocal8Bit("展开模型"));
+	QIcon icon5;
+	icon5.addFile(QString::fromUtf8("Icons/start_blue.png"), QSize(), QIcon::Normal, QIcon::Off);
+	start_unfold_action_->setIcon(icon5);
 }
 
 ///初始化菜单
@@ -64,6 +75,8 @@ void MainWindow::InitMenus() {
 	file_menu_ = menuBar()->addMenu(QString::fromLocal8Bit("文件"));
 	file_menu_->addAction(import_action_);
 	file_menu_->addAction(save_action_);
+	file_menu_->addAction(combine_region_action_);
+	file_menu_->addAction(cal_cutplane_action_);
 	file_menu_->addAction(save_texture_action_);
 
 	options_menu_ = menuBar()->addMenu(QString::fromLocal8Bit("选项"));
@@ -76,6 +89,8 @@ void MainWindow::InitMenus() {
 	main_toolbar_->addAction(save_action_);
 	main_toolbar_->addAction(save_texture_action_);
 	main_toolbar_->addSeparator();
+	main_toolbar_->addAction(combine_region_action_);
+	main_toolbar_->addAction(cal_cutplane_action_);
 	main_toolbar_->addAction(start_unfold_action_);
 }
 
@@ -102,6 +117,8 @@ void MainWindow::InitConnect() {
 	connect(import_action_, SIGNAL(triggered()), this, SLOT(OpenFile()));
 	connect(save_action_, SIGNAL(triggered()), this, SLOT(SaveFiles()));
 	connect(start_unfold_action_, SIGNAL(triggered()), this, SLOT(UnfoldModel()));
+	connect(combine_region_action_, &QAction::changed, model_area_, &ModelArea::ResetCombine);
+	connect(cal_cutplane_action_, SIGNAL(triggered()), model_area_, SLOT(ComputeBestCuts()));
 	connect(save_texture_action_, SIGNAL(triggered()), texture_area_, SLOT(SaveTextureFile()));
 }
 
@@ -116,7 +133,12 @@ void MainWindow::OpenFile() {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
+
+
+	combine_region_action_->setChecked(false);
 	model_area_->LoadModel(model_);
+	
+	texture_area_->Reset();
 }
 
 
@@ -130,3 +152,4 @@ void MainWindow::SaveFiles() {
 void MainWindow::UnfoldModel() {
 	texture_area_->LoadEnrolledSlices(model_area_->CutModel());
 }
+

@@ -41,6 +41,9 @@ private:
 	QAction* import_action_;	//读取模型文件操作
 	QAction* save_action_;	//保存所有文件操作，实际没有实现其功能
 	QAction* save_texture_action_;	//保存为纹理截图操作
+
+	QAction* combine_region_action_;
+	QAction* cal_cutplane_action_;
 	QAction* start_unfold_action_;	//展开模型操作
 
 	QMenu* file_menu_;	//文件菜单

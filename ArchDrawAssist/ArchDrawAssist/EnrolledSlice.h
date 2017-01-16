@@ -1,6 +1,7 @@
 #pragma once
 
 #include "PlaneFace.h"
+#include "PlanePoint.h"
 #include "gl/GLAUX.H"
 #include <vector>
 #include <QDebug>
@@ -10,9 +11,17 @@ class EnrolledSlice
 {
 public:
 	EnrolledSlice(const vector<PlaneFace>&faces) 
-		:faces_(faces){
+		:faces_(faces),boundary_(PlanePoint(0.0,0.0)),center_(PlanePoint(0.0,0.0)),
+		min_radius_(0.0),max_radius_(0.0),upright_(true){
 		UpdateBoundary();
 	}
+	EnrolledSlice(const vector<PlaneFace>& faces, const PlanePoint& boundary,
+		const PlanePoint& center,const double minradius,const double maxradius, const bool up) 
+		:faces_(faces),boundary_(boundary),center_(center),
+		min_radius_(minradius),max_radius_(maxradius),upright_(up){
+		UpdateBoundary();
+	}
+
 	~EnrolledSlice() {
 	}
 	void UpdateBoundary() {
@@ -43,7 +52,7 @@ public:
 		maxx_ = maxX;
 		maxy_ = maxY;
 	}
-	void DrawSlice() {
+	void DrawSlice() const{
 		glColor3f(1, 1, 1);
 		glEnable(GL_TEXTURE_2D);
 		//glDisable(GL_LINE_STIPPLE);
@@ -67,20 +76,43 @@ public:
 		for (int i = 0; i < faces_.size(); i++) {
 			faces_[i].Translate(offsetX, offsetY);
 		}
+		boundary_.Translate(offsetX, offsetY);
+		center_.Translate(offsetX, offsetY);
 		minx_ += offsetX;
 		miny_ += offsetY;
 		maxx_ += offsetX;
 		maxy_ += offsetY;
 	}
-	double LowerBound() {
+	double LowerBound() const{
 		return miny_;
 	}
-	double UpperBound() {
+	double UpperBound() const{
 		return maxy_;
 	}
+	PlanePoint Boundary() const{
+		return boundary_;
+	}
+	PlanePoint Center() const {
+		return center_;
+	}
+	bool IsRight()const {
+		return upright_;
+	}
+	double MinRadius()const{
+		return min_radius_;
+	}
+	double MaxRadius()const {
+		return max_radius_;
+	}
+
 public:
 	vector<PlaneFace> faces_;
 	double minx_, miny_;
 	double maxx_, maxy_;
+	PlanePoint boundary_;
+	PlanePoint center_;
+	double min_radius_;
+	double max_radius_;
+	bool upright_;
 };
 

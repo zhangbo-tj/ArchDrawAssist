@@ -14,6 +14,7 @@
 #include <QTimer>
 #include <QMenu>
 #include <QAction>
+#include <QMessageBox>
 
 #include <string>
 #include <fstream>
@@ -27,9 +28,12 @@ ModelArea::ModelArea(QWidget* parent)
 	setMouseTracking(true);
 	model_ = NULL;
 	paint_num_ = 0;
-	need_rotate = true;
+	need_rotate_ = true;
 	selected_cut_plane = -1;
 	right_button_pressed = false;
+	combine_region_ = false;
+
+	texture_threshold_ = 10000;
 	glLoadIdentity();
 
 	InitActions();
@@ -43,7 +47,7 @@ ModelArea::~ModelArea(){
 void ModelArea::initializeGL() {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glClearColor(0.0, 0.0, 0.0, 0);
+	glClearColor(1.0, 1.0, 1.0, 0);
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
 	glEnable(GL_DEPTH_TEST);
@@ -113,96 +117,101 @@ void ModelArea::paintGL() {
 	trackball_.Apply();
 
 	//判断是否载入模型
-	if (model_) {
-		if (need_rotate) {
-			glClearColor(0.0, 0.0, 0.0, 0);
-			string image_name = GLMDirName(model_->mPathname);
-			QPixmap pixmap;
-			///读取模型后先旋转一圈后获取四个方向的纹理，用于计算切分平面
-			switch (paint_num_)
-			{
-			case 0:
-				image_name += "image0.bmp";
-				//glRotated(90, 0, 1, 0);
+
+ 	if (model_) {
+ 		if (need_rotate_) {
+ 			glClearColor(0.9, 0.9, 0.9, 0);
+ 			string image_name = GLMDirName(model_->mPathname);
+ 			QPixmap pixmap;
+ 			///读取模型后先旋转一圈后获取四个方向的纹理，用于计算切分平面
+ 			switch (paint_num_)
+ 			{
+			case  -1:
 				glColor3f(1, 1, 1);
 				GLMDraw(model_, GLM_SMOOTH | GLM_TEXTURE);
-				pixmap = QPixmap::grabWindow(QApplication::desktop()->winId(),
-					mapToGlobal(pos()).x(),
-					mapToGlobal(pos()).y(),
-					frameGeometry().width() - 10,
-					frameGeometry().height() - 10);
-				pixmap.save(QString(QString::fromLocal8Bit(image_name.c_str())), "bmp");
 				break;
-			case 1:
-				image_name += "image1.bmp";
-				glRotated(90, 0, 1, 0);
-				glColor3f(1, 1, 1);
-				GLMDraw(model_, GLM_SMOOTH | GLM_TEXTURE);
-				pixmap = QPixmap::grabWindow(QApplication::desktop()->winId(),
-					mapToGlobal(pos()).x(),
-					mapToGlobal(pos()).y(),
-					frameGeometry().width() - 10,
-					frameGeometry().height() - 10);
-				pixmap.save(QString(QString::fromLocal8Bit(image_name.c_str())), "bmp");
-				break;
-			case 2:
-				image_name += "image2.bmp";
-				glRotated(180, 0, 1, 0);
-				glColor3f(1, 1, 1);
-				GLMDraw(model_, GLM_SMOOTH | GLM_TEXTURE);
-				pixmap = QPixmap::grabWindow(QApplication::desktop()->winId(),
-					mapToGlobal(pos()).x(),
-					mapToGlobal(pos()).y(),
-					frameGeometry().width() - 10,
-					frameGeometry().height() - 10);
-				pixmap.save(QString(QString::fromLocal8Bit(image_name.c_str())), "bmp");
-				break;
-			case 3:
-				image_name += "image3.bmp";
-				glRotated(270, 0, 1, 0);
-				glColor3f(1, 1, 1);
-				GLMDraw(model_, GLM_SMOOTH | GLM_TEXTURE);
-				pixmap = QPixmap::grabWindow(QApplication::desktop()->winId(),
-					mapToGlobal(pos()).x(),
-					mapToGlobal(pos()).y(),
-					frameGeometry().width() - 10,
-					frameGeometry().height() - 10);
-				pixmap.save(QString(QString::fromLocal8Bit(image_name.c_str())), "bmp");
-				break;
-			case 4:
-				image_name += "image4.bmp";
-				//glRotated(270, 0, 1, 0);
-				glColor3f(1, 1, 1);
-				GLMDraw(model_, GLM_SMOOTH | GLM_TEXTURE);
-				pixmap = QPixmap::grabWindow(QApplication::desktop()->winId(),
-					mapToGlobal(pos()).x(),
-					mapToGlobal(pos()).y(),
-					frameGeometry().width() - 10,
-					frameGeometry().height() - 10);
-				pixmap.save(QString(QString::fromLocal8Bit(image_name.c_str())), "bmp");
-				break;
-			default:
-				break;
-			}
-			paint_num_++;
-			if (paint_num_ == 5) {
-				need_rotate = false;
-			}
-		}
-		else {
-			glClearColor(1.0, 1.0, 1.0, 0);
-			glColor3f(1, 1, 1);
-			GLMDraw(model_, GLM_SMOOTH | GLM_TEXTURE);
-			///计算切分平面
-			if (cut_planes_.size() == 0) {
+ 			case 0:
+ 				image_name += "image0.bmp";
+ 				//glRotated(90, 0, 1, 0);
+ 				glColor3f(1, 1, 1);
+ 				GLMDraw(model_, GLM_SMOOTH | GLM_TEXTURE);
+ 				pixmap = QPixmap::grabWindow(QApplication::desktop()->winId(),
+ 					mapToGlobal(pos()).x(),
+ 					mapToGlobal(pos()).y(),
+ 					frameGeometry().width() - 10,
+ 					frameGeometry().height() - 10);
+ 				pixmap.save(QString(QString::fromLocal8Bit(image_name.c_str())), "bmp");
+ 				break;
+ 			case 1:
+ 				image_name += "image1.bmp";
+ 				glRotated(90, 0, 1, 0);
+ 				glColor3f(1, 1, 1);
+ 				GLMDraw(model_, GLM_SMOOTH | GLM_TEXTURE);
+ 				pixmap = QPixmap::grabWindow(QApplication::desktop()->winId(),
+ 					mapToGlobal(pos()).x(),
+ 					mapToGlobal(pos()).y(),
+ 					frameGeometry().width() - 10,
+ 					frameGeometry().height() - 10);
+ 				pixmap.save(QString(QString::fromLocal8Bit(image_name.c_str())), "bmp");
+ 				break;
+ 			case 2:
+ 				image_name += "image2.bmp";
+ 				glRotated(180, 0, 1, 0);
+ 				glColor3f(1, 1, 1);
+ 				GLMDraw(model_, GLM_SMOOTH | GLM_TEXTURE);
+ 				pixmap = QPixmap::grabWindow(QApplication::desktop()->winId(),
+ 					mapToGlobal(pos()).x(),
+ 					mapToGlobal(pos()).y(),
+ 					frameGeometry().width() - 10,
+ 					frameGeometry().height() - 10);
+ 				pixmap.save(QString(QString::fromLocal8Bit(image_name.c_str())), "bmp");
+ 				break;
+ 			case 3:
+ 				image_name += "image3.bmp";
+ 				glRotated(270, 0, 1, 0);
+ 				glColor3f(1, 1, 1);
+ 				GLMDraw(model_, GLM_SMOOTH | GLM_TEXTURE);
+ 				pixmap = QPixmap::grabWindow(QApplication::desktop()->winId(),
+ 					mapToGlobal(pos()).x(),
+ 					mapToGlobal(pos()).y(),
+ 					frameGeometry().width() - 10,
+ 					frameGeometry().height() - 10);
+ 				pixmap.save(QString(QString::fromLocal8Bit(image_name.c_str())), "bmp");
+ 				break;
+ 			case 4:
+ 				image_name += "image4.bmp";
+ 				//glRotated(270, 0, 1, 0);
+ 				glColor3f(1, 1, 1);
+ 				GLMDraw(model_, GLM_SMOOTH | GLM_TEXTURE);
+ 				pixmap = QPixmap::grabWindow(QApplication::desktop()->winId(),
+ 					mapToGlobal(pos()).x(),
+ 					mapToGlobal(pos()).y(),
+ 					frameGeometry().width() - 10,
+ 					frameGeometry().height() - 10);
+ 				pixmap.save(QString(QString::fromLocal8Bit(image_name.c_str())), "bmp");
+ 				break;
+ 			default:
+ 				break;
+ 			}
+ 			paint_num_++;
+ 			if (paint_num_ == 5) {
+ 				need_rotate_ = false;
+ 			}
+ 		}
+ 		else {
+ 			glClearColor(0.9,0.9,0.9, 0);
+ 			glColor3f(1, 1, 1);
+ 			GLMDraw(model_, GLM_SMOOTH | GLM_TEXTURE);
+ 			///计算切分平面
+		/*	if (cut_planes_.size() == 0) {
 				ComputeBestCuts();
 
-			}
-			///绘制切割平面
-			DrawCutPlanes();
-		}
-	}
-	glPopMatrix();
+			}*/
+ 			///绘制切割平面
+ 			DrawCutPlanes();
+ 		}
+ 	}
+ 	glPopMatrix();
 	
 }
 
@@ -217,20 +226,32 @@ void ModelArea::LoadModel(GLModel* model) {
 	glLoadIdentity();
 	
 	paint_num_ = 0;
-	need_rotate = true;
+	need_rotate_ = false;
+	combine_region_ = false;
+
+	cut_planes_.clear();
+	cut_radii_.clear();
+	selected_cut_plane = -1;
+	right_button_pressed = false;
+	context_menu_x = 0.0;
+	context_menu_y = 0.0;
+	context_menu_z = 0.0;
+	
+
 	trackball_.Reset();
-	QTimer::singleShot(100, this, SLOT(UpdateTimer()));
-	QTimer::singleShot(200, this, SLOT(UpdateTimer()));
-	QTimer::singleShot(300, this, SLOT(UpdateTimer()));
-	QTimer::singleShot(400, this, SLOT(UpdateTimer()));
-	QTimer::singleShot(500, this, SLOT(UpdateTimer()));
-	QTimer::singleShot(600, this, SLOT(UpdateTimer()));
+	update();
+// 	QTimer::singleShot(100, this, SLOT(UpdateTimer()));
+// 	QTimer::singleShot(200, this, SLOT(UpdateTimer()));
+// 	QTimer::singleShot(300, this, SLOT(UpdateTimer()));
+// 	QTimer::singleShot(400, this, SLOT(UpdateTimer()));
+// 	QTimer::singleShot(500, this, SLOT(UpdateTimer()));
+// 	QTimer::singleShot(600, this, SLOT(UpdateTimer()));
 }
 
 
 ///更新当前视图
 void ModelArea::UpdateTimer() {
-	update();
+	repaint();
 }
 
 ///读取MTL文件，加载纹理
@@ -445,8 +466,32 @@ bool compare(int x, int y) {
 
 ///计算切分位置
 void ModelArea::ComputeBestCuts() {
+	cut_planes_.clear();
+	cut_radii_.clear();
+	selected_cut_plane = -1;
+	right_button_pressed = false;
+
+
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(-2, 2, -2, 2, -3, 3);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	trackball_.Reset();
+	paint_num_ = -1;
+	need_rotate_ = true;
+	repaint();
+	repaint();
+	repaint();
+	repaint();
+	repaint();
+	repaint();
+	//repaint();
+
 	vector<double> gradients;
 	ComputeGradients(gradients);
+	std::reverse(gradients.begin(), gradients.end());
 
 	int startCol;
 	int endCol;
@@ -468,7 +513,7 @@ void ModelArea::ComputeBestCuts() {
 
 	vector<double> small_gradients;
 	for (int i = 0; i < gradients.size(); ++i) {
-		if (gradients[i] <= 10000) {	///该临界值对于不同的模型都不同
+		if (gradients[i] <= texture_threshold_) {	///该临界值对于不同的模型都不同
 			small_gradients.push_back(i);
 		}
 	}
@@ -483,19 +528,93 @@ void ModelArea::ComputeBestCuts() {
 			cut_cols.push_back(small_gradients[i]);
 		}
 		else if (small_gradients[i] - small_gradients[i - 1] != 1) {
+			cut_cols.push_back(small_gradients[i-1]+1);
 			cut_cols.push_back(small_gradients[i]);
 		}
 	}
 
 	///需要注意实际纹理中顺序是从上到下的，而计算出的切分平面顺序是从下到上的
-	std::sort(cut_cols.begin(), cut_cols.end(), std::greater<int>());
+	//std::sort(cut_cols.begin(), cut_cols.end(), std::greater<int>());
+	//std::reverse(cut_cols.begin(), cut_cols.end());
+	
+	
 	for (int i = 0; i < cut_cols.size(); ++i) {
-		double scale = (cut_cols[i]-startCol) / (static_cast<double>(colNum));
-		double cur_plane = 1 - scale * 2;
+		double scale = (cut_cols[i] - startCol) / (static_cast<double>(colNum));
+		double cur_plane =  scale * 2-1;
 		cut_planes_.push_back(cur_plane);
 		cut_radii_.push_back(CalIntersectRadius(cur_plane));
 	}
 
+	if(combine_region_) {
+		vector<double> average;
+		for (int i = 0; i < cut_cols.size() - 1; i++) {
+			int sum = std::accumulate(gradients.begin() + cut_cols[i], gradients.begin() + cut_cols[i + 1], 0);
+			average.push_back(sum / (static_cast<double>(cut_cols[i + 1] - cut_cols[i])));
+		}
+		//std::reverse(cut_cols.begin(), cut_cols.end());
+		//std::reverse(average.begin(), average.end());
+
+
+		vector<Face> faces;
+		for (auto tri : model_->mTriangles) {
+			int* vindices = tri.Vindices();
+			int* tindices = tri.Tindices();
+			faces.push_back(Face(model_->mVertices[vindices[0]], model_->mVertices[vindices[1]], model_->mVertices[vindices[2]],
+				model_->mTexcoods[tindices[0]], model_->mTexcoods[tindices[1]], model_->mTexcoods[tindices[2]]));
+		}
+
+		vector<Face> cuttedFaces;
+		for (auto face : faces) {
+			CutPlaneX(face, 0.0, cuttedFaces);
+		}
+		faces.clear();
+		faces = cuttedFaces;
+		cuttedFaces.clear();
+
+		for (auto plane : cut_planes_) {
+			for (auto face : faces) {
+				CutPlaneY(face, plane, cuttedFaces);
+			}
+			faces.clear();
+			faces = cuttedFaces;
+			cuttedFaces.clear();
+		}
+		
+		vector<Slice> slices;
+		for (int i = 0; i < cut_planes_.size() - 1; i++) {
+			slices.push_back(Slice(cut_planes_[i], cut_planes_[i + 1], cut_radii_[i], cut_radii_[i + 1]));
+		}
+
+		for (int i = 0; i < faces.size(); i++) {
+			int up = IsFaceUpperYOZ(faces[i]);
+			if (up == 1) {
+				faces[i].SetPositive(true);
+			}
+			else {
+				faces[i].SetPositive(false);
+			}
+			for (int j = 0; j < slices.size(); j++) {
+				if (slices[j].ContainFace(faces[i])) {
+					slices[j].AddFace(faces[i]);
+					break;
+				}
+			}
+		}
+
+
+		vector<double> radii;
+		for (auto slice : slices) {
+			slice.ConialFrustumFitting();
+			radii.push_back(slice.MaxRadius());
+		}
+		
+		
+		CombineRegions(gradients, average, radii, cut_planes_,cut_radii_);
+
+	}
+	QMessageBox::information(this, QString::fromLocal8Bit("提醒"), QString::fromLocal8Bit("切分平面计算完成"));
+
+	update();
 }
 
 ///使用opencv计算投影的梯度
@@ -506,9 +625,11 @@ void ModelArea::ComputeGradients(vector<double>& gradients) {
 	Mat src_gray, dst, grad_x;
 	vector<Mat> src;
 
+	//string str;
 	string str;
 	for (int k = 1; k <= 4; ++k) {
-		str = "image" + to_string(k) + ".bmp";
+		str = GLMDirName(model_->mPathname);
+		str += "image" + to_string(k) + ".bmp";
 		src.push_back(imread(str));
 		cvtColor(src.at(k - 1), src_gray, CV_RGB2GRAY);
 		cv::Sobel(src_gray, grad_x, ddepth, 1, 0, 3,scale, delta, BORDER_DEFAULT);
@@ -1189,10 +1310,7 @@ vector<EnrolledSlice> ModelArea::CutModel() {
 
 	for (int i = 0; i < cut_planes_.size(); i++) {
 		for (int j = 0; j < faces.size(); j++) {
-			//if (i == 2) {
-				CutPlaneY(faces[j], cut_planes_[i], cuttedFaces);
-			//}
-			
+			CutPlaneY(faces[j], cut_planes_[i], cuttedFaces);
 		}
 		faces.clear();
 		faces = cuttedFaces;
@@ -1222,6 +1340,7 @@ vector<EnrolledSlice> ModelArea::CutModel() {
 		}
 	}
 
+
 	///分别对每一个Slice进行展开，得到展开后的EnrolledSlice
 	vector<EnrolledSlice> enrolled_slices;
 	for (int i = 0; i < slices.size(); i++) {
@@ -1236,4 +1355,44 @@ void ModelArea::DeleteCuttingPlane() {
 	cut_planes_.erase(cut_planes_.begin() + selected_cut_plane);
 	cut_radii_.erase(cut_radii_.begin() + selected_cut_plane);
 	selected_cut_plane = -1;
+}
+
+
+void ModelArea::CombineRegions(vector<double>& gradients,vector<double>& average, 
+	vector<double>& radii,vector<double>& cutPlanes,vector<double>& cutRadius) {
+	vector<int> not_cut_index;
+	for (int i = 0; i < average.size(); i++) {
+		if (i == 0 && average[i] < texture_threshold_) {
+			not_cut_index.push_back(1);
+		}
+
+		if ((i >= 1) && (i < average.size() - 1) && (average[i] < texture_threshold_)) {
+			if (abs(radii[i] - radii[i - 1]) < abs(radii[i] - radii[i - 1])) {
+				not_cut_index.push_back(i);
+			}
+			else {
+				not_cut_index.push_back(i + 1);
+			}
+		}
+		
+		if (i == average.size() - 1 && average[i] < texture_threshold_) {
+			not_cut_index.push_back(average.size() - 1);
+		}
+	}
+	for (auto iter = not_cut_index.rbegin(); iter != not_cut_index.rend();++iter) {
+		cutPlanes.erase(cutPlanes.begin() + *iter);
+		cutRadius.erase(cutRadius.begin() + *iter);
+	}
+}
+
+
+
+void ModelArea::ResetCombine() {
+	if (combine_region_) {
+		combine_region_ = false;
+	}
+	else {
+		combine_region_ = true;
+	}
+	//ComputeBestCuts();
 }

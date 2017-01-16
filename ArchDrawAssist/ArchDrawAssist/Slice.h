@@ -28,6 +28,12 @@ public:
 	Slice(const double minvalue,const double maxvalue,const double minradius,const double highradius);
 	~Slice();
 
+	double MaxRadius() { return mMaxRadius; }
+	const double MaxRadius() const { return mMaxRadius; }
+	double MinRadius() { return mMinRadius; }
+	const double MinRadius()const { return mMinRadius; }
+
+
 	bool ContainVertex(const Vertex& vertex)const ;	//判断顶点是否位于Slice内
 	bool ContainFace(const Face& face)const;	//判断三角面片是否位于Slice内
 	int FacesSize() const;	//获取三角面片的数量

@@ -27,7 +27,8 @@ public:
 	
 	void UpdateBoundary();	//更新slice之间的位置，使其不会出现重叠
 	
-	
+	void Reset();
+
 public slots:
 	void SaveTextureFile();	//保存截图
 

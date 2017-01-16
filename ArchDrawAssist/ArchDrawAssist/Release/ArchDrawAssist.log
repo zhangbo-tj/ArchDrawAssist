@@ -1,17 +1,12 @@
-﻿  GLModel.cpp
-  moc_MainWindow.cpp
-  moc_ModelArea.cpp
-  moc_TextureArea.cpp
-  MainWindow.cpp
+﻿  MainWindow.cpp
   ModelArea.cpp
   Slice.cpp
 Slice.cpp(92): warning C4838: 从“double”转换到“float”需要收缩转换
 Slice.cpp(93): warning C4838: 从“double”转换到“float”需要收缩转换
 Slice.cpp(94): warning C4838: 从“double”转换到“float”需要收缩转换
   TextureArea.cpp
-  main.cpp
   正在生成代码...
-d:\archdrawassist\archdrawassist\archdrawassist\modelarea.cpp(253): warning C4700: 使用了未初始化的局部变量“filename”
+d:\archdrawassist\archdrawassist\archdrawassist\modelarea.cpp(274): warning C4700: 使用了未初始化的局部变量“filename”
 moc_MainWindow.obj : warning LNK4006: "float __cdecl Distance(float * const,float * const,int)" (?Distance@@YAMQAM0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
 moc_MainWindow.obj : warning LNK4006: "float __cdecl Distance(double * const,double * const,int)" (?Distance@@YAMQAN0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
 moc_MainWindow.obj : warning LNK4006: "float __cdecl RandomFloat(void)" (?RandomFloat@@YAMXZ) 已在 GeneralUse.obj 中定义；已忽略第二个定义
@@ -28,6 +23,7 @@ moc_ModelArea.obj : warning LNK4006: "float __cdecl Distance(float * const,float
 moc_ModelArea.obj : warning LNK4006: "float __cdecl Distance(double * const,double * const,int)" (?Distance@@YAMQAN0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
 moc_ModelArea.obj : warning LNK4006: "double __cdecl Distance(class MyPoint const &,class MyPoint const &)" (?Distance@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 moc_ModelArea.obj : warning LNK4006: "double __cdecl Distance(class Normal const &,class Normal const &)" (?Distance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_ModelArea.obj : warning LNK4006: "double __cdecl Distance(class PlanePoint const &,class PlanePoint const &)" (?Distance@@YANABVPlanePoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 moc_ModelArea.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class Vertex const &)" (?Distance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 moc_ModelArea.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class MyPoint const &)" (?Distance@@YANABVVertex@@ABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 moc_ModelArea.obj : warning LNK4006: "double __cdecl Dot(class MyPoint const &,class MyPoint const &)" (?Dot@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
@@ -67,6 +63,7 @@ moc_TextureArea.obj : warning LNK4006: "class Vertex __cdecl Cross(class Vertex 
 moc_TextureArea.obj : warning LNK4006: "float __cdecl Distance(float * const,float * const,int)" (?Distance@@YAMQAM0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
 moc_TextureArea.obj : warning LNK4006: "float __cdecl Distance(double * const,double * const,int)" (?Distance@@YAMQAN0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
 moc_TextureArea.obj : warning LNK4006: "double __cdecl Distance(class Normal const &,class Normal const &)" (?Distance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+moc_TextureArea.obj : warning LNK4006: "double __cdecl Distance(class PlanePoint const &,class PlanePoint const &)" (?Distance@@YANABVPlanePoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 moc_TextureArea.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class Vertex const &)" (?Distance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 moc_TextureArea.obj : warning LNK4006: "double __cdecl Dot(class Normal const &,class Normal const &)" (?Dot@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 moc_TextureArea.obj : warning LNK4006: "double __cdecl Dot(class Vertex const &,class Vertex const &)" (?Dot@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
@@ -141,6 +138,7 @@ main.obj : warning LNK4006: "float __cdecl Distance(float * const,float * const,
 main.obj : warning LNK4006: "float __cdecl Distance(double * const,double * const,int)" (?Distance@@YAMQAN0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
 main.obj : warning LNK4006: "double __cdecl Distance(class MyPoint const &,class MyPoint const &)" (?Distance@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 main.obj : warning LNK4006: "double __cdecl Distance(class Normal const &,class Normal const &)" (?Distance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+main.obj : warning LNK4006: "double __cdecl Distance(class PlanePoint const &,class PlanePoint const &)" (?Distance@@YANABVPlanePoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 main.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class Vertex const &)" (?Distance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 main.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class MyPoint const &)" (?Distance@@YANABVVertex@@ABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 main.obj : warning LNK4006: "double __cdecl Dot(class MyPoint const &,class MyPoint const &)" (?Dot@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
@@ -183,6 +181,7 @@ MainWindow.obj : warning LNK4006: "float __cdecl Distance(float * const,float * 
 MainWindow.obj : warning LNK4006: "float __cdecl Distance(double * const,double * const,int)" (?Distance@@YAMQAN0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
 MainWindow.obj : warning LNK4006: "double __cdecl Distance(class MyPoint const &,class MyPoint const &)" (?Distance@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 MainWindow.obj : warning LNK4006: "double __cdecl Distance(class Normal const &,class Normal const &)" (?Distance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+MainWindow.obj : warning LNK4006: "double __cdecl Distance(class PlanePoint const &,class PlanePoint const &)" (?Distance@@YANABVPlanePoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 MainWindow.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class Vertex const &)" (?Distance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 MainWindow.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class MyPoint const &)" (?Distance@@YANABVVertex@@ABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 MainWindow.obj : warning LNK4006: "double __cdecl Dot(class MyPoint const &,class MyPoint const &)" (?Dot@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
@@ -225,6 +224,7 @@ ModelArea.obj : warning LNK4006: "float __cdecl Distance(float * const,float * c
 ModelArea.obj : warning LNK4006: "float __cdecl Distance(double * const,double * const,int)" (?Distance@@YAMQAN0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
 ModelArea.obj : warning LNK4006: "double __cdecl Distance(class MyPoint const &,class MyPoint const &)" (?Distance@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 ModelArea.obj : warning LNK4006: "double __cdecl Distance(class Normal const &,class Normal const &)" (?Distance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+ModelArea.obj : warning LNK4006: "double __cdecl Distance(class PlanePoint const &,class PlanePoint const &)" (?Distance@@YANABVPlanePoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 ModelArea.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class Vertex const &)" (?Distance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 ModelArea.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class MyPoint const &)" (?Distance@@YANABVVertex@@ABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 ModelArea.obj : warning LNK4006: "double __cdecl Dot(class MyPoint const &,class MyPoint const &)" (?Dot@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
@@ -265,6 +265,7 @@ Slice.obj : warning LNK4006: "class Normal __cdecl Cross(class Normal const &,cl
 Slice.obj : warning LNK4006: "class Vertex __cdecl Cross(class Vertex const &,class Vertex const &)" (?Cross@@YA?AVVertex@@ABV1@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 Slice.obj : warning LNK4006: "double __cdecl Distance(class MyPoint const &,class MyPoint const &)" (?Distance@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 Slice.obj : warning LNK4006: "double __cdecl Distance(class Normal const &,class Normal const &)" (?Distance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+Slice.obj : warning LNK4006: "double __cdecl Distance(class PlanePoint const &,class PlanePoint const &)" (?Distance@@YANABVPlanePoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 Slice.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class Vertex const &)" (?Distance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 Slice.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class MyPoint const &)" (?Distance@@YANABVVertex@@ABVMyPoint@@@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 Slice.obj : warning LNK4006: "double __cdecl Dot(class MyPoint const &,class MyPoint const &)" (?Dot@@YANABVMyPoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
@@ -300,6 +301,7 @@ TextureArea.obj : warning LNK4006: "class Vertex __cdecl Cross(class Vertex cons
 TextureArea.obj : warning LNK4006: "float __cdecl Distance(float * const,float * const,int)" (?Distance@@YAMQAM0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
 TextureArea.obj : warning LNK4006: "float __cdecl Distance(double * const,double * const,int)" (?Distance@@YAMQAN0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
 TextureArea.obj : warning LNK4006: "double __cdecl Distance(class Normal const &,class Normal const &)" (?Distance@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
+TextureArea.obj : warning LNK4006: "double __cdecl Distance(class PlanePoint const &,class PlanePoint const &)" (?Distance@@YANABVPlanePoint@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 TextureArea.obj : warning LNK4006: "double __cdecl Distance(class Vertex const &,class Vertex const &)" (?Distance@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 TextureArea.obj : warning LNK4006: "double __cdecl Dot(class Normal const &,class Normal const &)" (?Dot@@YANABVNormal@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义
 TextureArea.obj : warning LNK4006: "double __cdecl Dot(class Vertex const &,class Vertex const &)" (?Dot@@YANABVVertex@@0@Z) 已在 moc_MainWindow.obj 中定义；已忽略第二个定义

@@ -49,7 +49,7 @@ public:
 
 	void DrawXYZ();	//绘制三维坐标系
 
-	void ComputeBestCuts();	//计算切分平面
+	//void ComputeBestCuts();	//计算切分平面
 	void ComputeGradients(vector<double>& gradients);	//计算几个方向的正投影对应的梯度
 	void DrawCutPlanes();	//绘制切分平面
 	//计算三角面片与平面的交点数量和坐标
@@ -71,14 +71,21 @@ public:
 	void DrawWiredCircleGreen(double y, double radius);	//画绿色的虚线圆
 
 	void InitActions();	//初始化所有的actions
+	void CombineRegions(vector<double>& gradients, vector<double> &average, 
+		vector<double> &radii,vector<double> &cutPlanes,vector<double>& cutRadius);
 
-
+	bool CombineRegion() { return combine_region_; }
+	const bool CombineRegion()const { return combine_region_; }
+	void SetCombineRegion(bool combine) { combine_region_ = combine; }
 
 public slots:
 	void UpdateTimer();	//刷新控件页面
 	void AddCuttingPlane();	//添加切分平面
 	void ResetTrackball();	//重置trackball
 	void DeleteCuttingPlane();	//删除切分平面
+	void ComputeBestCuts();
+	void ResetCombine();
+
 
 public:
 	//用平行于xoz平面的切分平面去分割三维模型
@@ -101,10 +108,13 @@ public:
 	GLModel* model_;	//三维模型
 	vcg::Trackball trackball_;	//trackball,用于控制缩放旋转等操作
 	int paint_num_;	//用于旋转模型获得正投影
-	bool need_rotate;	//判断是否需要旋转
+	bool need_rotate_;	//判断是否需要旋转
+	int texture_threshold_;
+	bool combine_region_;
 
 	vector<double> cut_planes_;	//切分平面
 	vector<double> cut_radii_;	//切分平面对应的半径
+
 
 	int selected_cut_plane;	//选中的切分平面的索引
 	bool right_button_pressed;	//鼠标右键是否被按下
