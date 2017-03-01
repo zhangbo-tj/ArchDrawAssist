@@ -13,3 +13,4 @@
     然后将每个片段拟合为圆台，然后根据圆台展开的方程将其展开为扇形。
     最后调整展开得到的片段的相对位置，使其不会出现相互重叠的情况。
 系统截图如下：
+   ![image](https://github.com/zhangbo-tj/ArchDrawAssist/blob/master/%E7%A8%8B%E5%BA%8F%E6%88%AA%E5%9B%BE.png?raw=true)
