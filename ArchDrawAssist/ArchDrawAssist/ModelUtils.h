@@ -7,7 +7,7 @@
 #include "Face.h"
 
 /**
-	三维模型中的一些相关操作
+	三维模型中的一些相关操作,似乎有一些没有用了
 */
 
 bool SameSide(const Vertex& A, const Vertex& B, const Vertex& C, const MyPoint& p) {

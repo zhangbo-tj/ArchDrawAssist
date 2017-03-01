@@ -17,6 +17,7 @@
 #include <core\core.hpp>
 #include <highgui\highgui.hpp>
 
+
 class QMenu;
 class QAction;
 
@@ -26,7 +27,8 @@ using namespace cv;
 /**
 	主要用于显示三维模型，并根据其四个方向正投影的纹理计算切分平面，
 	然后再使用切分切分平面分割三维模型，之后将切分后的片段分别展开
-	该类是主要功能类
+
+	该类还支持一些基本的鼠标键盘操作，以及添加、删除、移动切割平面的操作。
 */
 class ModelArea:public QGLWidget
 {
@@ -79,12 +81,11 @@ public:
 	void SetCombineRegion(bool combine) { combine_region_ = combine; }
 
 public slots:
-	void UpdateTimer();	//刷新控件页面
 	void AddCuttingPlane();	//添加切分平面
 	void ResetTrackball();	//重置trackball
 	void DeleteCuttingPlane();	//删除切分平面
-	void ComputeBestCuts();
-	void ResetCombine();
+	void ComputeBestCuts();	//计算切分平面
+	void ResetCombine();	//切换是否合并区域
 
 
 public:
@@ -92,11 +93,13 @@ public:
 	void CutPlaneY(const Face& face, const double yValue, vector<Face>& faces);
 	//用平行于yoz平面的切分平面去分割三维模型
 	void CutPlaneX(const Face& face, const double xValue, vector<Face>& faces);
+	
 	//用切分平面分割三维模型
-	vector<EnrolledSlice> CutModel();
+	vector<EnrolledSlice> CutInConicalMode();	//按照圆台模式展开
+	vector<EnrolledSlice> CutInCylinderMode();	//按照圆柱模式展开
 
 private:
-	///事件
+	///鼠标和键盘事件
 	void wheelEvent(QWheelEvent *event);
 	void mouseMoveEvent(QMouseEvent *event);
 	void mousePressEvent(QMouseEvent* event);
@@ -116,7 +119,7 @@ public:
 	vector<double> cut_radii_;	//切分平面对应的半径
 
 
-	int selected_cut_plane;	//选中的切分平面的索引
+	int selected_cut_plane_;	//选中的切分平面的索引
 	bool right_button_pressed;	//鼠标右键是否被按下
 
 	QMenu* right_button_menu_;	//右键菜单
@@ -126,9 +129,9 @@ public:
 
 
 	///鼠标右键时对应的世界坐标系下的坐标
-	double context_menu_x;	
-	double context_menu_y;
-	double context_menu_z;
+	double context_menu_x_;		//x坐标
+	double context_menu_y_;		//y坐标
+	double context_menu_z_;		//z坐标
 
 };
 

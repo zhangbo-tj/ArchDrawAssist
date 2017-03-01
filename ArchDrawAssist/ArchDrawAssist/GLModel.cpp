@@ -19,16 +19,17 @@
 
 enum { X, Y, Z, W };
 
-//////////////////////////////////////////////////////////////////////////
-//@intro	构造器
-//////////////////////////////////////////////////////////////////////////
+/**
+	构造器
+*/
 GLModel::GLModel() {
 	mAvePt[0] = mAvePt[1] = mAvePt[2] = 0.0;
 }
 
-//////////////////////////////////////////////////////////////////////////
-//@intro	清除三维模型数据
-//////////////////////////////////////////////////////////////////////////
+
+/**
+	清除三维模型的数据和相关的参数
+*/
 void GLModel::ClearData() {
 	mPathname = NULL;
 	mMtllibname = NULL;
@@ -57,10 +58,10 @@ void GLModel::ClearData() {
 	}
 }
 
-//////////////////////////////////////////////////////////////////////////
-//@intro	重载运算符=
-//@param	model：三维模型
-//////////////////////////////////////////////////////////////////////////
+
+/**
+	重载赋值运算符
+*/
 GLModel& GLModel::operator=(const GLModel & model) {
 	mPathname = model.mPathname;
 	mMtllibname = model.mMtllibname;
@@ -77,13 +78,13 @@ GLModel& GLModel::operator=(const GLModel & model) {
 	v_1ringTri = model.v_1ringTri;
 	t_1ringTri = model.t_1ringTri;
 	return *this;
-	//return GLModel(pathname,mtllibname,vertices,normals,texcoods,materials,triangles,facetnorms,groups,principleDir1,principleDir2,v_1ringVer,v_1ringTri,t_1ringTri);
 }
 
 
-//////////////////////////////////////////////////////////////////////////
-//@intro	判断bounding box是否为unit box
-//////////////////////////////////////////////////////////////////////////
+
+/**
+	判断其bounding box是否为unit box
+*/
 bool GLModel::IsUnitBox() {
 	CalAverage();
 
@@ -100,9 +101,11 @@ bool GLModel::IsUnitBox() {
 	return false;
 }
 
-//////////////////////////////////////////////////////////////////////////
-//@intro	计算三维模型样本点的minPt,maxPt和avePt
-//////////////////////////////////////////////////////////////////////////
+
+
+/**
+	计算三维模型样本点的minPt,maxPt和avePt
+*/
 void GLModel::CalAverage() {
 	int verNum = mVertices.size();
 	float sumx, sumy, sumz;
@@ -130,9 +133,10 @@ void GLModel::CalAverage() {
 	mAvePt[2] = (mMinPt[2] + mMaxPt[2]) / 2;
 }
 
-//////////////////////////////////////////////////////////////////////////
-//@intro	计算三维模型的min和max之间的距离
-//////////////////////////////////////////////////////////////////////////
+
+/**
+	计算三维模型的min和max之间的距离
+*/
 float calLength(float max, float min) {
 	float length;
 	if (max >= 0 && min >= 0) {
@@ -148,9 +152,10 @@ float calLength(float max, float min) {
 }
 
 
-//////////////////////////////////////////////////////////////////////////
-//@intro	对三维模型进行单位化
-//////////////////////////////////////////////////////////////////////////
+
+/**
+	对三维模型进行单位化
+*/
 void GLModel::Unitlize() {
 	float scale;
 	float w, h, d;
@@ -173,9 +178,10 @@ void GLModel::Unitlize() {
 }
 
 
-//////////////////////////////////////////////////////////////////////////
-//@intro	计算三维模型上所有三角面片的法向量
-//////////////////////////////////////////////////////////////////////////
+
+/**
+	计算三维模型上所有三角面片的法向量
+*/
 void GLModel::CalFacetNormals() {
 	for (int i = 0; i < mTriangles.size(); i++) {
 		int* vindices = mTriangles[i].Vindices();
@@ -191,9 +197,10 @@ void GLModel::CalFacetNormals() {
 }
 
 
-//////////////////////////////////////////////////////////////////////////
-//@intro	将wide char转换为string
-//////////////////////////////////////////////////////////////////////////
+
+/**
+	将wide char转换为string
+*/
 std::string ws2s(const std::wstring& wstr)
 {
 	int size_needed = WideCharToMultiByte(CP_ACP, 0, wstr.c_str(), int(wstr.length() + 1), 0, 0, 0, 0);
@@ -202,9 +209,9 @@ std::string ws2s(const std::wstring& wstr)
 	return strTo;
 }
 
-//////////////////////////////////////////////////////////////////////////
-//@intro	计算三维模型的主方向
-//////////////////////////////////////////////////////////////////////////
+/**
+	计算三维模型的主方向
+*/
 void GLModel::CalPrincipal() {
 	cout << "Now compute the principal" << endl;
 	char buf[MAX_PATH];
@@ -245,9 +252,11 @@ void GLModel::CalPrincipal() {
 	GenIncidentTable();
 }
 
-//////////////////////////////////////////////////////////////////////////
-//@intro	读取主方向文件
-//////////////////////////////////////////////////////////////////////////
+
+
+/**
+	读取主方向文件
+*/
 bool GLModel::Read_pdirFile(string strfile) {
 	FILE* file;
 	char buf[128];
@@ -277,9 +286,11 @@ bool GLModel::Read_pdirFile(string strfile) {
 	return true;
 }
 
-//////////////////////////////////////////////////////////////////////////
-//@intro	生成索引表
-//////////////////////////////////////////////////////////////////////////
+
+
+/**
+	生成索引表
+*/
 void GLModel::GenIncidentTable() {
 	vector<int> teminci;
 	int numVer = mVertices.size();
@@ -348,9 +359,10 @@ void GLModel::GenIncidentTable() {
 
 }
 
-//////////////////////////////////////////////////////////////////////////
-//@intro	删除三维模型的纹理
-//////////////////////////////////////////////////////////////////////////
+
+/**
+	删除三维模型的纹理
+*/
 void GLModel::ClearTextures() {
 	mTextureArray = new GLuint[100];
 	for (int i = 0; i<100; i++) {
@@ -359,10 +371,11 @@ void GLModel::ClearTextures() {
 }
 
 
-//////////////////////////////////////////////////////////////////////////
-//@intro	初始化数组值
-//@param	v,n,t:需要初始化的int数组
-//////////////////////////////////////////////////////////////////////////
+/**
+	初始化数组值为-1
+	
+	v,n,t为要初始化所的int数组
+*/
 void initVNT(int v[], int n[], int t[]) {
 	v[0] = v[1] = v[2] = -1;
 	n[0] = n[1] = n[2] = -1;
@@ -390,6 +403,11 @@ static char* stralloc(const char *string)
 //@intro	读取Obj文件
 //@param	filename:obj文件名
 //////////////////////////////////////////////////////////////////////////
+/**
+	读取Obj文件
+
+	filename为Obj文件名
+*/
 GLModel* GLMReadOBJ(const char* filename) {
 	GLModel* model = new GLModel();
 	FILE* file;
@@ -606,12 +624,14 @@ GLModel* GLMReadOBJ(const char* filename) {
 }
 
 
-//////////////////////////////////////////////////////////////////////////
-//@intro	查找是否存在material
-//@param	model:三维模型
-//@param	name:material名
-//@return	material的索引
-//////////////////////////////////////////////////////////////////////////
+/**
+	查找是否存在material
+
+	model为三维模型
+	name为material名称
+
+	返回material 索引
+*/
 int GLMFindMaterial(GLModel* model, char* name) {
 	int i;
 	for (i = 0; i < model->mMaterials.size(); i++) {
@@ -624,11 +644,14 @@ int GLMFindMaterial(GLModel* model, char* name) {
 	return i;
 }
 
-//////////////////////////////////////////////////////////////////////////
-//@intro	读取MTL文件
-//@param	model:三维模型
-//@param	name:MTL文件名
-//////////////////////////////////////////////////////////////////////////
+
+
+/**
+	读取MTL文件
+
+	model为三维模型
+	name为mtl文件名
+*/
 void GLMReadMTL(GLModel* model, char* name) {
 	FILE* file;
 	char* dir;
@@ -721,10 +744,10 @@ void GLMReadMTL(GLModel* model, char* name) {
 	}
 }
 
-//////////////////////////////////////////////////////////////////////////
-//@intro	获取三维模型的路径
-//@param	path:路径名
-//////////////////////////////////////////////////////////////////////////
+
+/**
+	获取三维模型的路径
+*/
 char* GLMDirName(char* path) {
 	char* dir;
 	char* s;
@@ -738,9 +761,10 @@ char* GLMDirName(char* path) {
 	return dir;
 }
 
-//////////////////////////////////////////////////////////////////////////
-//读取BMP图片生成纹理，并绑定到
-//////////////////////////////////////////////////////////////////////////
+
+/**
+	读取BMP文件生成纹理
+*/
 int GLMReadBMP(GLuint textureArray[], char* strFileName, int textureID)
 {
 	AUX_RGBImageRec *pBitmap = NULL;
@@ -783,11 +807,15 @@ int GLMReadBMP(GLuint textureArray[], char* strFileName, int textureID)
 	return 1;
 }
 
-//////////////////////////////////////////////////////////////////////////
-//@intro	绘制三维模型
-//@param	model:三维模型
-//@param	mode:绘制三维模型的模式
-//////////////////////////////////////////////////////////////////////////
+
+
+/**
+	绘制三维模型
+
+	参数：
+		model:要绘制的三维模型
+		mode :绘制模型要采用的模式 
+*/
 void GLMDraw(GLModel* model, GLuint mode) {
 	int i, j;
 	Group group;
@@ -840,16 +868,16 @@ void GLMDraw(GLModel* model, GLuint mode) {
 	for (unsigned int i = 0; i < model->mGroups.size(); i++) {
 		group = model->mGroups.at(i);
 		Material material = model->mMaterials.at(group.MaterialNo());
-		if (mode & GLM_MATERIAL) {
-			glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, material.Ambient());
-			glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, material.Diffuse());
-			glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, material.Specular());
-			glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, material.Shiness());
-		}
+// 		if (mode & GLM_MATERIAL) {
+// 			glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, material.Ambient());
+// 			glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, material.Diffuse());
+// 			glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, material.Specular());
+// 			glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, material.Shiness());
+// 		}
 
-		if (mode & GLM_COLOR) {
-			glColor3fv(model->mMaterials[0].Diffuse());
-		}
+// 		if (mode & GLM_COLOR) {
+// 			glColor3fv(model->mMaterials[0].Diffuse());
+// 		}
 
 		/* add code here to bind texture for each model */
 		if (mode & GLM_TEXTURE) {

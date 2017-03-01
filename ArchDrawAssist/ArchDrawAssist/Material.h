@@ -14,7 +14,7 @@ private:
 	char* map_file_;	//映射文件
 
 public:
-	//成员的get和set操作
+	///成员的getter和setter操作
 	Material(char* n, float d[4], float a[4], float s[4], float e[4], float sh, char* file) {
 		name_ = n;
 		diffuse_[0] = d[0]; diffuse_[1] = d[1]; diffuse_[2] = d[2]; diffuse_[3] = d[3];

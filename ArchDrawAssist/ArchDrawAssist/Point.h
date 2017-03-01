@@ -6,14 +6,16 @@
 */
 class MyPoint {
 private:
-	double x_, y_, z_;
-	Normal normal_;
-	Normal principle1_, principle2_;
-	int index_;
-	int trinum_;
+	double x_, y_, z_;	//点的坐标值
+	Normal normal_;		//点的法向量
+	Normal principle1_, principle2_;	//点的主方向
+	int index_;	//索引
+	int trinum_;	//所在三角面片
 
 
 public:
+
+	///构造函数
 	MyPoint()
 		:x_(0.0),y_(0.0),z_(0.0),index_(0),trinum_(0) {
 	}
@@ -25,6 +27,7 @@ public:
 		return n;
 	}
 
+	///成员的getter和setter方法
 	double X() { return x_; }
 	const double X()const { return x_; }
 	double Y() { return y_; }
@@ -53,6 +56,7 @@ public:
 	void SetIndex(int index) { index_ = index; }
 
 
+	///重载运算符
 	MyPoint operator+(const MyPoint& p) const{
 		return MyPoint(x_ + p.X(), y_ + p.Y(), z_ + p.Z());
 	}
@@ -74,6 +78,9 @@ public:
 			x_*p.Y() - y_*p.X());
 	}
 
+
+
+	///重载复合运算符
 	MyPoint& operator+=(const MyPoint& p) {
 		x_ += p.X();
 		y_ += p.Y();
@@ -99,6 +106,8 @@ public:
 		return *this;
 	}
 
+
+	///点乘、叉乘、单位化等操作
 	double Dot(const MyPoint& p) const{
 		return x_*p.X() + y_*p.Y() + z_*p.Z();
 	}
@@ -126,48 +135,64 @@ public:
 };
 
 
-///计算两个点之间的距离
+/**
+	计算两个点之间的距离
+*/
 double Distance(const MyPoint& v1, const MyPoint& v2) {
 	return (v1 - v2).Norm();
 }
 
-///计算两个点之间的距离平方
+/**
+	计算两个点之间的距离平方
+*/
 double SquaredDistance(const MyPoint& v1, const MyPoint& v2) {
 	return (v1 - v2).SquaredNorm();
 }
 
-///计算两个点之间的距离
+/**
+	计算两个点之间的距离
+*/
 double Norm(const MyPoint& v1) {
 	return v1.Norm();
 }
 
 
-///计算两个点之间的距离平方值
+/**
+	计算两个点之间的距离平方值
+*/
 double SquaredNorm(const MyPoint& v1) {
 	return v1.SquaredNorm();
 }
 
 
-///单位化
+/**
+	单位化
+*/
 MyPoint Normalize(MyPoint& v) {
 	v.Normalize();
 	return v;
 }
 
 
-///点乘操作
+/**
+	点乘操作
+*/
 double Dot(const MyPoint& v1, const MyPoint& v2) {
 	return v1.Dot(v2);
 }
 
 
-///叉乘操作
+/**
+	叉乘操作
+*/
 MyPoint Cross(const MyPoint& v1, const MyPoint& v2) {
 	return v1.Cross(v2);
 }
 
 
-///计算夹角
+/**
+	计算夹角
+*/
 double Angle(const MyPoint& v1, const MyPoint& v2) {
 	double w = v1.Norm()* v2.Norm();
 	if (w == 0) {

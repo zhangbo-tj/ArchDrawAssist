@@ -7,39 +7,64 @@
 #include <QDebug>
 
 
-///构造函数
+/**
+	构造函数
+	
+	参数：
+		minvalue  : slice的下界
+		maxvalue  : slice的上界
+		lowradius : slice下表面的半径
+		highradius: slice上表面的半径
+*/
 Slice::Slice(const double minvalue, const double maxvalue, const double lowradius, const double highradius) 
-	:mLowerPoint(minvalue),mUpperPoint(maxvalue),mLowerRadius(lowradius),mHigherRadius(highradius),mFlag(true){
+	:lower_point_(minvalue),upper_point_(maxvalue),lower_radius_(lowradius),higher_radius_(highradius),is_positive_(true){
 
 }
 
-///析构函数
+/**
+	析构函数
+*/
 Slice::~Slice(){
 }
 
 
-///判断Slice是否包含顶点
-bool Slice::ContainVertex(const Vertex& vertex) const{
-	bool onLowPlane = abs(vertex.Y() - mLowerPoint) < 1.0e-8 ? true : false;
-	bool onHighPlane = abs(vertex.Y() - mUpperPoint) < 1.0e-8 ? true : false;
+/**
+	判断某个顶点是否位于该Slice内
 
-	if (onLowPlane || onHighPlane || (!onLowPlane&&onHighPlane&& vertex.Y() < mUpperPoint&& vertex.Y() > mLowerPoint)) {
+	参数：
+		vertex: 顶点
+
+	返回值：
+		顶点位于Slice内则返回true,否则返回false
+*/
+bool Slice::ContainVertex(const Vertex& vertex) const{
+	bool onLowPlane = abs(vertex.Y() - lower_point_) < 1.0e-8 ? true : false;
+	bool onHighPlane = abs(vertex.Y() - upper_point_) < 1.0e-8 ? true : false;
+
+	if (onLowPlane || onHighPlane || (!onLowPlane&&onHighPlane&& vertex.Y() < upper_point_&& vertex.Y() > lower_point_)) {
 		return true;
 	}
 	return false;
 }
 
-///判断Slice是否包含三角面片
+/**
+	判断三角面片是否位于Slice内，只有三个顶点都位于Slice内才可以
+
+	参数:
+		face: 要检查的三角面片
+
+	返回值：
+		true or false
+*/
 bool Slice::ContainFace(const Face& face) const{
-	//return ContainVertex(face.VertexA()) && ContainVertex(face.VertexB()) && ContainVertex(face.VertexC());
 	bool low = false, high = false;
-	if (IsFaceUpperPlaneY(face, mLowerPoint) == 1) {
+	if (IsFaceUpperPlaneY(face, lower_point_) == 1) {
 		low = true;
 	}
 	else {
 		return false;
 	}
-	if (IsFaceUpperPlaneY(face, mUpperPoint) == -1) {
+	if (IsFaceUpperPlaneY(face, upper_point_) == -1) {
 		high = true;
 	}
 	else {
@@ -53,41 +78,51 @@ bool Slice::ContainFace(const Face& face) const{
 }
 
 
-///获取三角面片的数量
+/**
+	获取三角面片的数量
+*/
 int Slice::FacesSize() const {
-	return mFaces.size();
+	return faces_.size();
 }
 
 
-///添加三角面片
+/**
+	添加三角面片到该Slice内
+*/
 void Slice::AddFace(const Face& face) {
-	mFaces.push_back(Face(face));
+	faces_.push_back(Face(face));
 }
 
 
-///判断拟合后的圆台是否为正立的
+/**
+	判断拟合后的圆台是否为正立的
+*/
 bool Slice::IsRight() const{
-	if (mLowerRadius >= mHigherRadius) {
+	if (lower_radius_ >= higher_radius_) {
 		return true;
 	}
 	return false;
 }
 
 
-///获取三角面片集合
+/**
+	获取三角面片集合
+*/
 vector<Face> Slice::Faces() {
-	return mFaces;
+	return faces_;
 }
 
-///将Slice拟合为圆台
+/**
+	将Slice拟合为圆台
+*/
 void Slice::ConialFrustumFitting() {
 	
 	vector<pPOINT> RefectPoints;
 	vector<Vertex> vertices;
-	for (int i = 0; i < mFaces.size(); i++) {
-		Vertex vertexA = mFaces[i].VertexA();
-		Vertex vertexB = mFaces[i].VertexB();
-		Vertex vertexC = mFaces[i].VertexC();
+	for (int i = 0; i < faces_.size(); i++) {
+		Vertex vertexA = faces_[i].VertexA();
+		Vertex vertexB = faces_[i].VertexB();
+		Vertex vertexC = faces_[i].VertexC();
 
 		pPOINT p1 = { abs(vertexA.Y()), sqrt(vertexA.X() * vertexA.X() + vertexA.Z() * vertexA.Z()) };
 		pPOINT p2 = { abs(vertexB.Y()), sqrt(vertexB.X() * vertexB.X() + vertexB.Z() * vertexB.Z()) };
@@ -142,8 +177,8 @@ void Slice::ConialFrustumFitting() {
 				if (VC < V)
 				{
 					V = VC;
-					mMinRadius = start_max;
-					mMaxRadius = yp;
+					min_radius_ = start_max;
+					max_radius_ = yp;
 				}
 				start_max = start_max + distance;
 			}
@@ -155,8 +190,8 @@ void Slice::ConialFrustumFitting() {
 				if (VC < V)
 				{
 					V = VC;
-					mMinRadius = yp;
-					mMaxRadius = start_min;
+					min_radius_ = yp;
+					max_radius_ = start_min;
 				}
 				start_min = start_min + distance;
 			}
@@ -164,14 +199,14 @@ void Slice::ConialFrustumFitting() {
 		else
 			if (RefectPoints[k - 1].x == RefectPoints[k - 2].x) {
 				m1 = (RefectPoints[k - 1].y - RefectPoints[k].y) / (RefectPoints[k - 1].x - RefectPoints[k].x);
-				mMinRadius = m1*(reflectmax_x - RefectPoints[k - 1].x) + RefectPoints[k - 1].y;
-				mMaxRadius = m1*(reflectmin_x - RefectPoints[k - 1].x) + RefectPoints[k - 1].y;
+				min_radius_ = m1*(reflectmax_x - RefectPoints[k - 1].x) + RefectPoints[k - 1].y;
+				max_radius_ = m1*(reflectmin_x - RefectPoints[k - 1].x) + RefectPoints[k - 1].y;
 
 			}
 			else if (RefectPoints[k - 1].x == RefectPoints[k].x) {
 				m2 = (RefectPoints[k - 1].y - RefectPoints[k - 2].y) / (RefectPoints[k - 1].x - RefectPoints[k - 2].x);
-				mMaxRadius = m2*(reflectmax_x - RefectPoints[k - 1].x) + RefectPoints[k - 1].y;
-				mMinRadius = m2*(reflectmin_x - RefectPoints[k - 1].x) + RefectPoints[k - 1].y;
+				max_radius_ = m2*(reflectmax_x - RefectPoints[k - 1].x) + RefectPoints[k - 1].y;
+				min_radius_ = m2*(reflectmin_x - RefectPoints[k - 1].x) + RefectPoints[k - 1].y;
 			}
 	}
 
@@ -197,8 +232,8 @@ void Slice::ConialFrustumFitting() {
 				if (VC < V)
 				{
 					V = VC;
-					mMinRadius = start_min;
-					mMaxRadius = yp;
+					min_radius_ = start_min;
+					max_radius_ = yp;
 				}
 				start_min = start_min + distance;
 			}
@@ -210,8 +245,8 @@ void Slice::ConialFrustumFitting() {
 				if (VC < V)
 				{
 					V = VC;
-					mMinRadius = yp;
-					mMaxRadius = start_max;
+					min_radius_ = yp;
+					max_radius_ = start_max;
 				}
 				start_max = start_max + distance;
 			}
@@ -225,8 +260,8 @@ void Slice::ConialFrustumFitting() {
 				if (VC < V)
 				{
 					V = VC;
-					mMinRadius = r1;
-					mMaxRadius = R1;
+					min_radius_ = r1;
+					max_radius_ = R1;
 				}
 			}
 			else if (RefectPoints[k + 1].x == RefectPoints[k].x) {
@@ -237,8 +272,8 @@ void Slice::ConialFrustumFitting() {
 				if (VC < V)
 				{
 					V = VC;
-					mMinRadius = r2;
-					mMaxRadius = R2;
+					min_radius_ = r2;
+					max_radius_ = R2;
 				}
 			}
 
@@ -247,8 +282,17 @@ void Slice::ConialFrustumFitting() {
 }
 
 
-///将三角面片按照圆台方式展开
-PlaneFace Slice::ExpandAsConial(const Face& face, const double height,const double R, const double H, const bool flag) {
+/**
+	将三角面片按照圆台方式展开，获取展开后的平面三角面片
+
+	参数：
+		face		   : 需要展开的三角面片
+		height,R,H,flag：圆台的参数
+
+	返回值：
+		展开后的平面三角面片
+*/
+PlaneFace Slice::ExpandFaceAsConial(const Face& face, const double height,const double R, const double H, const bool flag) {
 	double x1 = face.VertexA().X();
 	double y1 = face.VertexA().Y();
 	double z1 = face.VertexA().Z();
@@ -376,47 +420,153 @@ PlaneFace Slice::ExpandAsConial(const Face& face, const double height,const doub
 		X3 = 0;
 		Y3 = 0;
 	}
-	return PlaneFace(PlanePoint(X1, Y1), PlanePoint(X2, Y2), PlanePoint(X3, Y3), face.TextureA(), face.TextureB(), face.TextureC());
+	return PlaneFace(PlanePoint(X1, Y1), PlanePoint(X2, Y2), PlanePoint(X3, Y3),
+		face.TextureA(), face.TextureB(), face.TextureC());
 }
 
 
-///展开该Slice
-EnrolledSlice Slice::EnrollSlice() {
-	mFlag = IsRight();
-	ConialFrustumFitting();	//拟合为圆台
+/**
+	按照圆台模式展开该Slice
 
-	double h1 = mUpperPoint - mLowerPoint;
- 	//mMinRadius = mLowerRadius < mHigherRadius ? mLowerRadius : mHigherRadius;
- 	//mMaxRadius = mLowerRadius > mHigherRadius ? mLowerRadius : mHigherRadius;
-	qDebug() << "max: min" << mMaxRadius << " " << mMinRadius<<"  "<<mLowerRadius<<"  "<<mHigherRadius<<" "<<mLowerPoint<<" "<<mUpperPoint ;
-	if (mMaxRadius < mMinRadius) {
-		std::swap(mMaxRadius, mMinRadius);
+	返回值：
+		展开后的平面Slice
+*/
+EnrolledSlice Slice::EnrollSliceAsConial() {
+	is_positive_ = IsRight();
+	ConialFrustumFitting();	//拟合为圆台
+	min_radius_ = min_radius_ < 0.0 ? 0 : min_radius_;
+	if (abs(max_radius_ - min_radius_) < 1.0e-8) {
+		return EnrollSliceAsCylinder();
 	}
-	double step = mUpperPoint - mLowerPoint;
-	if (mFlag) {
-		H = mMaxRadius * step / (mMaxRadius - mMinRadius);
-		mHeight = H + mLowerPoint;
+
+
+	///计算圆台的部分参数
+	double h1 = upper_point_ - lower_point_;
+	if (max_radius_ < min_radius_) {
+		std::swap(max_radius_, min_radius_);
+	}
+	double step = upper_point_ - lower_point_;
+	if (is_positive_) {
+		H_ = max_radius_ * step / (max_radius_ - min_radius_);
+		height_ = H_ + lower_point_;
 	}
 	else {
-		H = mMaxRadius * step / (mMaxRadius - mMinRadius);
-		mHeight = mUpperPoint - H;
+		H_ = max_radius_ * step / (max_radius_ - min_radius_);
+		height_ = upper_point_ - H_;
 	}
+
+	///计算展开后得到的平面三角面片集合
 	vector<PlaneFace> plane_faces;
-	for (int i = 0; i < mFaces.size(); ++i) {
-		plane_faces.push_back(ExpandAsConial(mFaces[i], mHeight, mMaxRadius, H, mFlag));
-		//plane_faces.push_back(ExpandAsCylinder(mFaces[i], mMaxRadius));
+	for (int i = 0; i < faces_.size(); ++i) {
+		plane_faces.push_back(ExpandFaceAsConial(faces_[i], height_, max_radius_, H_, is_positive_));
 	}
 	
-	double alpha = M_PI * mMaxRadius / sqrt(H* H + mMaxRadius*mMaxRadius);
-	double tempMinRadius = mMinRadius / mMaxRadius*sqrt(H*H + mMaxRadius*mMaxRadius);
-	double tempMaxRadius = sqrt(H * H + mMaxRadius*mMaxRadius);
+
+	///计算展开后的平面Slice的部分参数，这些参数并没有实用
+	double alpha = M_PI * max_radius_ / sqrt(H_* H_ + max_radius_*max_radius_);
+	double tempMinRadius = min_radius_ / max_radius_*sqrt(H_*H_ + max_radius_*max_radius_);
+	double tempMaxRadius = sqrt(H_ * H_ + max_radius_*max_radius_);
 	PlanePoint boundary;
-	if (mFlag) {
-		boundary = PlanePoint(tempMinRadius*sin(alpha), mHeight - tempMinRadius*cos(alpha));
+	if (is_positive_) {
+		boundary = PlanePoint(tempMinRadius*sin(alpha), height_ - tempMinRadius*cos(alpha));
 	}
 	else {
-		boundary = PlanePoint(tempMinRadius*sin(alpha), mHeight + tempMinRadius*cos(alpha));
+		boundary = PlanePoint(tempMinRadius*sin(alpha), height_ + tempMinRadius*cos(alpha));
 	}
-	return EnrolledSlice(plane_faces,boundary,PlanePoint(0,mHeight),tempMinRadius,tempMaxRadius,mFlag);
+
+	///返回展开后的Slice
+	return EnrolledSlice(plane_faces,boundary,PlanePoint(0,height_),tempMinRadius,tempMaxRadius,is_positive_);
+}
+
+
+
+/**
+	拟合为圆柱
+
+	返回值：
+		拟合后的圆柱的半径
+*/
+double Slice::CylinderFitting() {
+	double max_radius = -1000;
+
+	for (auto face : faces_) {
+		double radiusA = sqrt(face.VertexA().X()*face.VertexA().X() + face.VertexA().Z()*face.VertexA().Z());
+		double radiusB = sqrt(face.VertexB().X()*face.VertexB().X() + face.VertexB().Z()*face.VertexB().Z());
+		double radiusC = sqrt(face.VertexC().X()*face.VertexC().X() + face.VertexC().Z()*face.VertexC().Z());
+
+		max_radius = max_radius > radiusA ? max_radius : radiusA;
+		max_radius = max_radius > radiusB ? max_radius : radiusB;
+		max_radius = max_radius > radiusC ? max_radius : radiusC;
+	}
+	return max_radius;
+}
+
+
+/**
+	将三角面片按照圆柱方式展开
+
+	参数：
+		face  : 要展开的三角面片
+		radius: 圆柱体的半径
+
+	返回值：
+		展开三角面片得到的平面面片
+*/
+PlaneFace Slice::ExpandFaceAsCylinder(const Face& face,const double radius) {
+	double X1, X2, X3;
+	double Y1, Y2, Y3;
+	
+	double Ax = face.VertexA().X();
+	double Ay = face.VertexA().Y();
+	double Az = face.VertexA().Z();
+
+	double Bx = face.VertexB().X();
+	double By = face.VertexB().Y();
+	double Bz = face.VertexB().Z();
+
+	double Cx = face.VertexC().X();
+	double Cy = face.VertexC().Y();
+	double Cz = face.VertexC().Z();
+
+	const bool isFacePositive = face.IsPositive();
+
+	double cosA = Az / sqrt(Ax*Ax + Az*Az);
+	double cosB = Bz / sqrt(Bx*Bx + Bz*Bz);
+	double cosC = Cz / sqrt(Cx*Cx + Cz*Cz);
+
+	if (isFacePositive) {
+		X1 = (M_PI - acos(cosA))*radius;
+		X2 = (M_PI - acos(cosB))*radius;
+		X3 = (M_PI - acos(cosC))*radius;
+	}
+	else {
+		X1 = (acos(cosA) - M_PI)*radius;
+		X2 = (acos(cosB) - M_PI)*radius;
+		X3 = (acos(cosC) - M_PI)*radius;
+	}
+
+	Y1 = Ay;
+	Y2 = By;
+	Y3 = Cy;
+
+	return PlaneFace(PlanePoint(X1, Y1), PlanePoint(X2, Y2), PlanePoint(X3, Y3),
+		face.TextureA(), face.TextureB(), face.TextureC());
+}
+
+
+/**
+	将Slice按照圆柱模式进行展开
+
+	返回值：
+		展开后的平面Slice
+*/
+EnrolledSlice Slice::EnrollSliceAsCylinder() {
+	double radius = CylinderFitting();
+	vector<PlaneFace> enrolled_faces;
+
+	for (auto &face : faces_) {
+		enrolled_faces.push_back(ExpandFaceAsCylinder(face,radius));
+	}
+	return EnrolledSlice(enrolled_faces);
 }
 

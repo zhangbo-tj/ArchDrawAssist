@@ -6,7 +6,8 @@
 #include <QWidget>
 
 /**
-	主要用于显示展开后的纹理，并可以进行截图操作保存展开后的纹理
+	主要用于显示展开后的纹理控件，并可以进行截图操作保存展开后的纹理
+	允许鼠标键盘操作进行缩放和拖动
 */
 class TextureArea:public QGLWidget
 {
@@ -27,7 +28,7 @@ public:
 	
 	void UpdateBoundary();	//更新slice之间的位置，使其不会出现重叠
 	
-	void Reset();
+	void Reset();	//重置控件内容
 
 public slots:
 	void SaveTextureFile();	//保存截图

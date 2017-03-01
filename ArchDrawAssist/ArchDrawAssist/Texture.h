@@ -1,9 +1,16 @@
 #pragma once
+
+
+/**
+	用于保存顶点纹理值的类，成员为x坐标和y坐标
+*/
 class Texture {
 private:
-	double x_, y_;
+	double x_, y_;	//纹理坐标值
 
 public:
+
+	///构造函数
 	Texture()
 		:x_(0.0), y_(0.0) {
 	}
@@ -14,9 +21,18 @@ public:
 		:x_(tex.X()), y_(tex.Y()) {
 		
 	}
+
+	/**
+		初始化成员
+	*/
 	void Init() {
 		x_ = y_ = 0.0;
 	}
+
+
+	/**
+		重载赋值运算符
+	*/
 	Texture& operator=(const Texture& t) {
 		x_ = t.X();
 		y_ = t.Y();
@@ -24,6 +40,8 @@ public:
 	}
 
 
+	
+	///	重载复合运算符
 	Texture& operator +=(const Texture& texture) {
 		x_ += texture.X();
 		y_ += texture.Y();
@@ -58,6 +76,8 @@ public:
 		return Texture(x_ / s, y_ / s);
 	}
 
+
+	///成员的Getter和Setter方法
 	double X() { return x_; }
 	const double X()const { return x_; }
 	double Y() { return y_; }

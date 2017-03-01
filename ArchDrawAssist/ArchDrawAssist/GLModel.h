@@ -18,22 +18,25 @@ using namespace std;
 #define GLM_COLOR    (1 << 3)    /* render with colors */              //0000 0001将1左移3位，即0000 1000
 #define GLM_MATERIAL (1 << 4)    /* render with materials */           //0000 0001将1左移4位，即0001 0000
 
+
+
+
 /**
-	三维模型的类，主要用于三维模型的相关计算
+	三维模型的类，主要用于三维模型的读取和相关计算
 	该类主要是对GLM中的GLMmodel进行改写后的内容
 */	
 class GLModel {
 public:
-	char* mPathname;		//path to this model
-	char* mMtllibname;	//name of the material library
+	char* mPathname;		//三维模型的路径
+	char* mMtllibname;	//Material的名称
 
-	vector<Vertex> mVertices;	//array of vertices in model
-	vector<Normal> mNormals;		//array of normals in model
-	vector<Texture> mTexcoods;	//array of texcoods in model
-	vector<Material> mMaterials;		//array of materials in model
-	vector<Triangle> mTriangles;		//array of triangles in model
-	vector<Normal> mFacetNormals;	//array of facetnorms in model
-	vector<Group> mGroups;	//array of groups in model
+	vector<Vertex> mVertices;		//模型中顶点的数组
+	vector<Normal> mNormals;		//模型中顶点法向量数组
+	vector<Texture> mTexcoods;		//模型中顶点纹理坐标值的数组
+	vector<Material> mMaterials;	//模型material的数组
+	vector<Triangle> mTriangles;	//模型中三角面片的数组
+	vector<Normal> mFacetNormals;	//模型中三角面片的数组
+	vector<Group> mGroups;			//模型中Group数组
 	vector<Normal> mPrincipleDir1, mPrincipleDir2;  //curvature 主方向
 
 	vector<vector<int>> v_1ringVer;	//顶点的1 ring 邻接顶点

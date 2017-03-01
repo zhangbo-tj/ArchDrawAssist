@@ -1,12 +1,19 @@
-﻿  MainWindow.cpp
+﻿  Moc'ing TextureArea.h...
+  GLModel.cpp
+  moc_MainWindow.cpp
+  moc_ModelArea.cpp
+  moc_TextureArea.cpp
+  kdtree.cpp
+  MainWindow.cpp
   ModelArea.cpp
   Slice.cpp
-Slice.cpp(92): warning C4838: 从“double”转换到“float”需要收缩转换
-Slice.cpp(93): warning C4838: 从“double”转换到“float”需要收缩转换
-Slice.cpp(94): warning C4838: 从“double”转换到“float”需要收缩转换
+Slice.cpp(127): warning C4838: 从“double”转换到“float”需要收缩转换
+Slice.cpp(128): warning C4838: 从“double”转换到“float”需要收缩转换
+Slice.cpp(129): warning C4838: 从“double”转换到“float”需要收缩转换
   TextureArea.cpp
+  main.cpp
   正在生成代码...
-d:\archdrawassist\archdrawassist\archdrawassist\modelarea.cpp(274): warning C4700: 使用了未初始化的局部变量“filename”
+d:\archdrawassist\archdrawassist\archdrawassist\modelarea.cpp(307): warning C4700: 使用了未初始化的局部变量“filename”
 moc_MainWindow.obj : warning LNK4006: "float __cdecl Distance(float * const,float * const,int)" (?Distance@@YAMQAM0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
 moc_MainWindow.obj : warning LNK4006: "float __cdecl Distance(double * const,double * const,int)" (?Distance@@YAMQAN0H@Z) 已在 GeneralUse.obj 中定义；已忽略第二个定义
 moc_MainWindow.obj : warning LNK4006: "float __cdecl RandomFloat(void)" (?RandomFloat@@YAMXZ) 已在 GeneralUse.obj 中定义；已忽略第二个定义
